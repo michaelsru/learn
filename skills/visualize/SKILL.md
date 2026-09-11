@@ -5,13 +5,13 @@ description: "Add a correct, minimal visual to a lesson — a diagram or geometr
 
 # Visualize
 
-A picture earns its place only when it shows something words can't — shape, structure, direction, relationship, geometry. This skill produces ONE such picture, guarantees it is **correct** (the maker renders it and looks at it before returning), and drops it into the lesson so it renders inline in the Obsidian `md-log` file.
+A picture earns its place only when it shows something words can't — shape, structure, direction, relationship, geometry. This skill produces ONE such picture, guarantees it is correct (the maker renders it and looks at it before returning), and drops it into the lesson so it renders inline in the Obsidian `md-log` file.
 
-You are the **creative director**. You decide the exact idea and distill it to its fewest carrying elements. A **maker subagent** does the authoring, rendering, visual verification, and saving, then returns a filename. You embed that filename in your reply.
+You are the creative director. You decide the exact idea and distill it to its fewest carrying elements. A maker subagent does the authoring, rendering, visual verification, and saving, then returns a filename. You embed that filename in your reply.
 
 ## When to visualize (and when not to)
 
-This teaching system builds a **dependency graph in the learner's head** — axioms at the root, derived facts hanging off them. A visual is powerful exactly when it makes that structure (or a geometry) visible. Reach for one when:
+This teaching system builds a dependency graph in the learner's head — axioms at the root, derived facts hanging off them. A visual is powerful exactly when it makes that structure (or a geometry) visible. Reach for one when:
 
 - The idea is a **structure or relationship**: dependencies, a system with parts and arrows, a flow/pipeline, a sequence of exchanges, a state machine, a tree/hierarchy, a comparison, a containment (what's inside vs outside).
 - The idea is **spatial or geometric**: coordinate geometry, a number line, vectors, a function's shape, a physical arrangement.
@@ -29,7 +29,7 @@ Rule of thumb: if it's *nodes-and-edges / relationships*, use mermaid-maker. If 
 
 ## Brief the maker well: one idea, fewest elements
 
-The most common failure is **cramming** — every extra label makes the picture harder to read AND harder to lay out correctly. Before briefing, prune to the fewest elements that carry the idea, and for each ask: *"if I delete this, is the idea still clear?"* If yes, delete it.
+The most common failure is cramming: every extra label makes the picture harder to read AND harder to lay out correctly. Before briefing, prune to the fewest elements that carry the idea, and for each ask: *"if I delete this, is the idea still clear?"* If yes, delete it.
 
 Give the maker the concept AND the concrete elements you want — not a vague topic, and not a long checklist.
 
@@ -49,7 +49,7 @@ subagent(agent="mermaid-maker", task="<your minimal, concrete brief>")
 subagent(agent="svg-maker", task="<your minimal, concrete brief>")
 ```
 
-The maker owns its own purpose-built tools (`write_*`/`edit_*`/`render_*`) — it authors the source, renders it to a PNG, **looks at the PNG and iterates until it is correct and clean**, publishes it into the vault with a unique filename, and returns:
+The maker owns its own purpose-built tools (`write_*`/`edit_*`/`render_*`) — it authors the source, renders it to a PNG, looks at the PNG and iterates until it is correct and clean, publishes it into the vault with a unique filename, and returns:
 
 ```
 RESULT:
@@ -71,8 +71,8 @@ That's all. The `md-log` extension mirrors your reply text verbatim into the lin
 
 ## Why this is reliable
 
-- The maker never returns a picture it hasn't **looked at**, so "renders fine but says something false" is caught before it reaches the learner.
-- PNG embed means **what the maker verified is pixel-identical to what the learner sees** — no re-render drift.
+- The maker never returns a picture it hasn't looked at, so "renders fine but says something false" is caught before it reaches the learner.
+- PNG embed means what the maker verified is pixel-identical to what the learner sees, with no re-render drift.
 - Unique filenames keep Obsidian's by-filename embed resolution unambiguous.
 
 > The makers render through the project's `visual-tools` extension (Mermaid via a bundled `@mermaid-js/mermaid-cli` + installed Chrome; SVG via `rsvg-convert`, fallback ImageMagick). You don't render anything yourself — you only brief the maker and embed the filename it returns.
