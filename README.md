@@ -11,7 +11,7 @@ This is a personal system I built for myself, shared as-is. Built as a pi config
 - `skills/teach/` — the philosophy and the process
 - `skills/visualize/` — adds a correct, minimal diagram to a lesson when an idea is clearer as a picture
 - `extensions/ask-user-question/` — the agent asks you questions through a UI popup
-- `extensions/quiz/` — graded questions with instant feedback (✓/✗, correct answer, explanation)
+- `extensions/quiz/` — free-response questions you answer by typing, with the reference answer and explanation revealed on submit; the agent grades the answer and records ✓/✗
 - `extensions/md-log/` — link a markdown file to the session
 - `extensions/visual-tools/` — tools for visualization subagents
 - `agents/` — `researcher`, `svg-maker`, `mermaid-maker`: the subagents the system delegates to

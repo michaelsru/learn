@@ -17,12 +17,18 @@
  * tool_result. The question block NEVER contains the correct answer or
  * explanation (the user reads this file live).
  *
+ * quiz answers are typed free text, so the quiz tool can't grade them and the
+ * answer block lands ungraded, titled with QUIZ_PENDING_TITLE. The agent grades
+ * the answer with `quiz_grade`, and that result patches the pending title into a
+ * graded one (success/warning/failure) in place. So the file is append-only
+ * except for that one header line per quiz.
+ *
  * Commands:
  *   /md-log <filepath>  — Link a markdown file and backfill the session.
  *   /md-unlog           — Stop logging.
  *
- * Append-only. No send-back-to-agent functionality (that lived in the old
- * .md-link extension this was modeled on).
+ * No send-back-to-agent functionality (that lived in the old .md-link extension
+ * this was modeled on).
  */
 
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
@@ -30,6 +36,26 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 
 const QA_TOOLS = new Set(["quiz", "ask_user_question"]);
+
+// Title of a quiz answer block that is waiting for the agent's grade, and the
+// exact first line it produces. This extension writes the marker itself, so
+// `quiz_grade` has an exact anchor to patch rather than a guessed one.
+const QUIZ_PENDING_TITLE = "Quiz — answered";
+const QUIZ_PENDING_HEADER = `> [!question] ${QUIZ_PENDING_TITLE}`;
+
+function gradeHeader(verdict: string): string {
+	const type = verdict === "correct" ? "success" : verdict === "partial" ? "warning" : "failure";
+	const label = verdict === "correct" ? "correct ✓" : verdict === "partial" ? "partly right ~" : "incorrect ✗";
+	return `> [!${type}] Quiz — ${label}`;
+}
+
+// One-line grade note inserted under the patched header. Flattened to a single
+// line so it can't break the callout's `> ` prefixing.
+function gradeNote(assessment: string | undefined): string {
+	if (!assessment) return "";
+	const flat = assessment.split("\n").map((l) => l.trim()).filter(Boolean).join(" ");
+	return flat ? `\n> Grade: ${flat}` : "";
+}
 
 export default function mdLog(pi: ExtensionAPI) {
 	let logFile: string | null = null;
@@ -138,43 +164,64 @@ export default function mdLog(pi: ExtensionAPI) {
 			return callout("warning", "Quiz — unavailable", [details?.message || ""]);
 		}
 		// "I don't know" is neither correct nor incorrect — it's a distinct signal,
-		// so it never renders as a red ✗.
+		// so it never renders as a red ✗ and never waits for a grade.
 		const dontKnow = details?.dontKnow === true;
-		const correct = details?.correct === true;
-		const type = dontKnow ? "question" : correct ? "success" : "failure";
-		const title = dontKnow
-			? "Quiz — I don't know"
-			: correct
-				? "Quiz — correct ✓"
-				: "Quiz — incorrect ✗";
 		const body: string[] = [];
 
 		if (dontKnow) {
 			body.push("Your answer: I don't know");
 		} else {
-			const answers: any[] = details?.answers || [];
-			const sel = answers.map((a) => `${a.index}. ${a.label}`).join(", ") || "(none)";
-			body.push(`Your answer: ${sel}`);
+			body.push("Your answer:");
+			for (const line of String(details?.answer || "(no answer)").split("\n")) body.push(line);
 		}
 
-		const correctIndices: number[] = details?.correctIndices || [];
-		const correctStr = correctIndices.map((i) => `${i}`).join(", ");
-		body.push(`Correct answer: ${correctStr}`);
-
-		// Optional free-text note the user typed in the always-present note field.
-		// Only present (in details) when non-empty, so no guard for empty strings.
-		if (details?.note) {
+		if (details?.correctAnswer) {
 			body.push("");
-			const noteLines = String(details.note).split("\n");
-			body.push(`Note: ${noteLines[0]}`);
-			for (let i = 1; i < noteLines.length; i++) body.push(noteLines[i]);
+			body.push("Reference answer:");
+			for (const line of String(details.correctAnswer).split("\n")) body.push(line);
 		}
 
 		if (details?.explanation) {
 			body.push("");
 			for (const line of String(details.explanation).split("\n")) body.push(line);
 		}
-		return callout(type, title, body);
+
+		// A typed answer can't be graded here, so it lands under the pending title
+		// and `quiz_grade` patches it. "I don't know" is already final.
+		return dontKnow
+			? callout("question", "Quiz — I don't know", body)
+			: callout("question", QUIZ_PENDING_TITLE, body);
+	}
+
+	// Patch the most recent pending quiz header into a graded one. The anchor is a
+	// marker this extension wrote itself, so the match is exact; when it's absent
+	// (logging started mid-question, the quiz was an "I don't know", or a grade
+	// arrived twice) this is a no-op rather than an error.
+	function applyGradeToFile(verdict: string, assessment: string | undefined): void {
+		if (!logFile) return;
+		try {
+			const current = fs.readFileSync(logFile, "utf-8");
+			const at = current.lastIndexOf(QUIZ_PENDING_HEADER);
+			if (at === -1) return;
+			const replacement = gradeHeader(verdict) + gradeNote(assessment);
+			fs.writeFileSync(
+				logFile,
+				current.slice(0, at) + replacement + current.slice(at + QUIZ_PENDING_HEADER.length),
+				"utf-8",
+			);
+		} catch {
+			// File may have been deleted externally; ignore.
+		}
+	}
+
+	// Same patch against an in-memory block list, for the backfill path.
+	function applyGradeToBlocks(blocks: string[], verdict: string, assessment: string | undefined): void {
+		for (let i = blocks.length - 1; i >= 0; i--) {
+			if (blocks[i].startsWith(QUIZ_PENDING_HEADER)) {
+				blocks[i] = gradeHeader(verdict) + gradeNote(assessment) + blocks[i].slice(QUIZ_PENDING_HEADER.length);
+				return;
+			}
+		}
 	}
 
 	function answerCalloutAsk(details: any): string {
@@ -226,50 +273,40 @@ export default function mdLog(pi: ExtensionAPI) {
 		// toolResult messages are handled by the tool_result event (for QA tools).
 	});
 
-	// ask_user_question never shuffles its options, so the tool_call args are
-	// already the true display order — safe to write the question live, before
-	// the user answers.
+	// Neither tool reorders anything before display any more (quiz answers are
+	// typed, so it has no options to shuffle), which means the tool_call args are
+	// already exactly what the user sees — safe to write the question live,
+	// before they answer.
 	pi.on("tool_call", async (event, _ctx) => {
 		if (!logFile) return;
 		const toolName = (event as any).toolName;
-		if (toolName !== "ask_user_question") return;
+		if (!QA_TOOLS.has(toolName)) return;
 		const input = (event as any).input || {};
 		const question: string = input.question || "";
 		const context: string | undefined = input.details?.trim() || undefined;
-		const options: Array<{ label: string }> = Array.isArray(input.options) ? input.options : [];
-		const block = questionCallout("Question", question, context, options);
-		await withLock(() => appendToFile(block));
-	});
-
-	// quiz DOES shuffle its options inside execute(), so the tool_call args are
-	// the pre-shuffle author order — NOT what the user is shown. quiz emits an
-	// onUpdate() with the true (post-shuffle) order before it blocks on the
-	// user's answer; wait for that instead so the logged order always matches
-	// what's on screen. Guard against duplicate writes if multiple updates fire
-	// for the same call.
-	const loggedQuizQuestion = new Set<string>();
-	pi.on("tool_execution_update", async (event, _ctx) => {
-		if (!logFile) return;
-		const toolName = (event as any).toolName;
-		if (toolName !== "quiz") return;
-		const toolCallId = (event as any).toolCallId;
-		if (loggedQuizQuestion.has(toolCallId)) return;
-		const shuffled = (event as any).partialResult?.details?.options as Array<{ index: number; label: string }> | undefined;
-		if (!shuffled || shuffled.length === 0) return;
-		loggedQuizQuestion.add(toolCallId);
-		const input = (event as any).args || {};
-		const question: string = input.question || "";
-		const context: string | undefined = input.details?.trim() || undefined;
-		const options = shuffled.map((o) => ({ label: o.label }));
-		const block = questionCallout("Quiz", question, context, options);
+		// Only ask_user_question offers options; a quiz is answered by typing.
+		const options: Array<{ label: string }> =
+			toolName === "ask_user_question" && Array.isArray(input.options) ? input.options : [];
+		const label = toolName === "quiz" ? "Quiz" : "Question";
+		const block = questionCallout(label, question, context, options);
 		await withLock(() => appendToFile(block));
 	});
 
 	pi.on("tool_result", async (event, _ctx) => {
 		if (!logFile) return;
 		const toolName = (event as any).toolName;
-		if (!QA_TOOLS.has(toolName)) return;
 		const details = (event as any).details;
+
+		// quiz_grade carries the agent's verdict for the answer block already in
+		// the file, so it patches that block instead of appending one.
+		if (toolName === "quiz_grade") {
+			const verdict = details?.verdict;
+			if (!verdict) return;
+			await withLock(() => applyGradeToFile(verdict, details?.assessment));
+			return;
+		}
+
+		if (!QA_TOOLS.has(toolName)) return;
 		const block = toolName === "quiz"
 			? answerCalloutQuiz(details)
 			: answerCalloutAsk(details);
@@ -404,22 +441,20 @@ export default function mdLog(pi: ExtensionAPI) {
 			}
 
 			if (msg.role === "toolResult") {
+				// A grade refers back to the quiz answer block already emitted, so it
+				// patches that block rather than adding one of its own.
+				if (msg.toolName === "quiz_grade") {
+					const verdict = msg.details?.verdict;
+					if (verdict) applyGradeToBlocks(blocks, verdict, msg.details?.assessment);
+					continue;
+				}
 				if (!QA_TOOLS.has(msg.toolName)) continue;
 				const tc = toolCallArgs.get(msg.toolCallId);
-				// Question block. For quiz, use the persisted result's `details.options`
-				// — the TRUE post-shuffle display order the user actually saw — rather
-				// than the original tool-call args, which are the pre-shuffle author
-				// order and can mismatch what's on screen. ask_user_question never
-				// shuffles, so its tool-call args are already the true order.
 				if (tc) {
 					const a = tc.args || {};
 					const label = tc.name === "quiz" ? "Quiz" : "Question";
-					const shuffled = msg.toolName === "quiz"
-						? (msg.details?.options as Array<{ index: number; label: string }> | undefined)
-						: undefined;
-					const options = shuffled && shuffled.length > 0
-						? shuffled.map((o) => ({ label: o.label }))
-						: (Array.isArray(a.options) ? a.options : []);
+					// Only ask_user_question has options; a quiz is answered by typing.
+					const options = tc.name === "ask_user_question" && Array.isArray(a.options) ? a.options : [];
 					blocks.push(questionCallout(label, a.question || "", a.details?.trim() || undefined, options));
 				}
 				if (msg.toolName === "quiz") {
