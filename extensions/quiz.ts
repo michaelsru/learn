@@ -162,7 +162,7 @@ function buildResult(
 		text += `\nTheir answer: ${answer}`;
 		text += `\nReference answer: ${correctAnswer}`;
 	}
-	text += `\nExplanation shown to them: ${explanation}`;
+	if (explanation) text += `\nExplanation shown to them: ${explanation}`;
 
 	return {
 		content: [{ type: "text" as const, text }],

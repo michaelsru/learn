@@ -197,6 +197,21 @@ export default function mdLog(pi: ExtensionAPI) {
 	// marker this extension wrote itself, so the match is exact; when it's absent
 	// (logging started mid-question, the quiz was an "I don't know", or a grade
 	// arrived twice) this is a no-op rather than an error.
+	//
+	// lastIndexOf, not indexOf, and the choice is a deliberate trade. Grading is
+	// meant to be one-at-a-time (quiz, grade, quiz, grade), and while it is, both
+	// behave identically. They differ only once that is violated, and neither is
+	// safe in every case:
+	//   - Two quizzes pending at once: oldest-first grades them in the order they
+	//     were asked and gets both right; newest-first swaps the two verdicts.
+	//   - A quiz that never gets graded: newest-first ignores the stale block for
+	//     good, since later grades always match something newer; oldest-first
+	//     attaches every future verdict to the stale block and stays one behind
+	//     forever.
+	// The second violation is the likelier one (a skipped call, an interrupted
+	// session), and it degrades far worse: a run of confidently wrong ✓/✗ marks in
+	// the lesson log is more damaging than one visibly ungraded block. So take the
+	// failure that omits a verdict over the one that silently misattributes it.
 	function applyGradeToFile(verdict: string, assessment: string | undefined): void {
 		if (!logFile) return;
 		try {
