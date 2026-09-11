@@ -1,11 +1,11 @@
 ---
 name: visualize
-description: "Add a correct, minimal visual to a lesson — a diagram or geometric picture — that renders inline in the Obsidian log. Use when an idea is genuinely clearer as a picture: a dependency graph, system/flow, sequence, state machine, tree, comparison, or a spatial/geometric thing (coordinate geometry, number line, vectors, a plot, a physical layout). Outsources authoring+rendering to a maker subagent that verifies the image by looking at it, then you embed the returned file."
+description: "Add a correct, minimal visual to a lesson — a diagram or geometric picture — that renders inline in the lesson log. Use when an idea is genuinely clearer as a picture: a dependency graph, system/flow, sequence, state machine, tree, comparison, or a spatial/geometric thing (coordinate geometry, number line, vectors, a plot, a physical layout). Outsources authoring+rendering to a maker subagent that verifies the image by looking at it, then you embed the returned file."
 ---
 
 # Visualize
 
-A picture earns its place only when it shows something words can't — shape, structure, direction, relationship, geometry. This skill produces ONE such picture, guarantees it is correct (the maker renders it and looks at it before returning), and drops it into the lesson so it renders inline in the Obsidian `md-log` file.
+A picture earns its place only when it shows something words can't — shape, structure, direction, relationship, geometry. This skill produces ONE such picture, guarantees it is correct (the maker renders it and looks at it before returning), and drops it into the lesson so it renders inline wherever he reads it back.
 
 You are the creative director. You decide the exact idea and distill it to its fewest carrying elements. A maker subagent does the authoring, rendering, visual verification, and saving, then returns a filename. You embed that filename in your reply.
 
@@ -61,13 +61,25 @@ If it returns `RESULT: NONE`, it couldn't make a correct picture of the brief �
 
 ## Embed it in the lesson
 
-Put the embed directly in your teaching reply, using Obsidian's wikilink embed with the returned **filename** (not the full path) and a display width:
+Put the embed directly in your teaching reply. Introduce the visual in a sentence, then let it carry the idea; don't narrate every element back in prose.
+
+Which embed syntax to use depends on which file he'll read it in, and there are two of those.
+
+**The `md-log` file, when one is linked.** Use Obsidian's wikilink embed with the returned **filename** (not the full path) and a display width:
 
 ```
 ![[viz-<slug>-<timestamp>.png|500]]
 ```
 
-That's all. The `md-log` extension mirrors your reply text verbatim into the linked `.md`, and Obsidian resolves the embed by filename anywhere in the vault (the maker saves into the project's `viz` folder, which is inside the vault) — so it renders inline in the lesson automatically. Width `|500` is a good default; use larger for dense diagrams. Introduce the visual in a sentence, then let it carry the idea — don't narrate every element back in prose.
+That's all. The `md-log` extension mirrors your reply text verbatim into the linked `.md`, and Obsidian resolves the embed by filename anywhere in the vault, since the maker saves into the project's `viz` folder, which is inside the vault. Width `|500` is a good default; use larger for dense diagrams.
+
+**The session note (`sessions/<topic>.md`, see the `teach` skill).** A wikilink only resolves inside Obsidian. Everywhere else it renders as the literal text `![[...]]`, which leaves a hole in the file he's meant to read the history from. So in the session note, embed with a normal markdown image and a path relative to the note:
+
+```
+![](../viz/viz-<slug>-<timestamp>.png)
+```
+
+That renders in Obsidian too, and in GitHub, and in any editor preview. If the picture needs a width, `<img src="../viz/viz-<slug>-<timestamp>.png" width="500">` gives you one, at the cost of Obsidian being inconsistent about relative paths inside an `<img>`. When no `md-log` file is linked, your reply itself only goes to the terminal, which renders no images either way, so the note is the only copy that matters.
 
 ## Why this is reliable
 

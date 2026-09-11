@@ -16,3 +16,7 @@ __pycache__/
 # Runtime state
 .memory/
 *.log
+
+# Learning session output
+sessions/
+viz/

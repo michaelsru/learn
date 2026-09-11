@@ -34,6 +34,8 @@ Then open pi in that directory. (Or copy the pieces you want into your existing 
 
 ## Notes
 
+Every teaching session writes a markdown note to `sessions/` in the project you run it from, so there's a history to read back. With an `md-log` file linked the note stays a summary: the plan, the dependency map, the quiz verdicts, and what was left open. With nothing linked it carries the lesson itself, since then it's the only record.
+
 You can run the system without subagents. The main session does the teaching. You just lose the researcher (truth verification) and the generated visuals.
 
 The teaching skill is written for one learner (me). Edit the skill to fit how you learn best.
