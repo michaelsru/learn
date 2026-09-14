@@ -80,6 +80,7 @@ What goes in it:
 - Where his edge sat when you found it (Phase 1a): what he already held, and where it ran out. That's the part that's hardest to reconstruct later and the most useful when you pick the topic back up.
 - The approach prose and the mermaid dependency map from Phase 2.
 - One entry per node as it lands: the node, how it was established, his quiz answer in his own words, and the verdict. Note anything thin in his wording even when the verdict was correct.
+- The cards that node earned, if any. See "Cards" below.
 - A rolling "Open" section at the end of the session's entry: nodes not reached yet, gaps you found and haven't taught into, anything he half-got. Rewrite it as you go rather than saving it for the end. He doesn't announce when a session is over, he just stops, so the only version of that section that ever gets written is the one that's already current.
 
 How much of the teaching itself you write into the note depends on whether something else is already capturing the session verbatim.
@@ -88,6 +89,71 @@ How much of the teaching itself you write into the note depends on whether somet
 - When nothing is mirroring, the note is the only record. Write the teaching into it too: the motivated path for each node, in enough detail that it reads correctly cold, months later.
 
 If the `quiz` and `ask_user_question` tools aren't in your tool list you aren't running in pi, so nothing is mirroring and the fuller version is the one to write. If you are in pi and can't tell whether a file is linked, fold the question into the Phase 1b questions you're already asking him.
+
+### Cards — what won't hold on its own
+
+He keeps an Anki collection, and the cards from a session get authored later from
+this note. Choosing which facts deserve one is part of teaching, not a job for
+whoever reads the note afterwards. You are the only one who sees his typed
+answers, what he hedged, and what he got wrong on the first pass, and that is the
+whole basis for the choice.
+
+Most of a session needs no cards. That follows from the philosophy above: an
+understood fact is held in place by its connections and doesn't rot, so drilling
+it buys nothing and costs him review time every day. Cards are for the residue,
+the facts that understanding can't keep.
+
+One test, applied to everything you're tempted to card: **could he regenerate
+this from what he already holds?** If he could, no card. A derived step hangs off
+its parents, and when it slips, re-deriving it is the repair.
+
+What survives the test:
+
+- **Convention.** Names, acronyms, numbers fixed by a standard, register and
+  field names, measured constants. No amount of understanding reproduces an
+  arbitrary name. These are the stretches you taught expository because there was
+  nothing to discover, and they are what Anki is genuinely good for.
+- **A corrected misconception.** A wrong model that got dislodged tends to grow
+  back, and it is worse than a gap because it feels like knowledge. Card the
+  corrected version, aimed so the old model is the tempting wrong answer.
+- **A thin pass.** He was graded correct, but his wording gave the conclusion
+  without the mechanism, or he hedged his way there. Card the thin part alone,
+  not the node around it. Anything you wrote into Open as worth re-probing is the
+  same case.
+
+Two rules keep the set small:
+
+- **Only a node that landed gets cards.** A card for something not yet taught is
+  a memorized fact with nothing underneath it, which is what this whole skill
+  exists to prevent. Nodes still open, half-answered or never reached produce
+  nothing, and they get their cards in the session that finally lands them.
+- **Nothing he already held gets a card.** Phase 1a established that he has it.
+
+A handful per session is the normal yield. If a session produces more cards than
+it had nodes, you carded the derivation instead of the residue, so go back and
+apply the test again.
+
+Record them inside the node's entry, in the same edit that records the node:
+
+```markdown
+**Cards:**
+- `[ ]` Trace decoded against a mismatched binary comes out plausible and wrong, not as an error. (thin pass: he had "the binary must match" without the silent part)
+- `[ ]` ETB and ETR are two configurations of one block, the TMC. (convention, nothing derives the name)
+```
+
+Write the fact and the reason it survived the test. Nothing else. The wording,
+the cloze deletions, the deck and the scope tags belong to the authoring skill in
+his Anki repo, which has the format rules and the existing collection to check
+against, and which will fill the empty brackets with the ID it allocates. A
+bracket that already holds an ID means that card exists, so leave it alone.
+
+When a node earns nothing, write `**Cards:** none.` so a later reader can see it
+was considered rather than skipped.
+
+The handoff is manual and he drives it: he runs the `anki-cards` skill in his
+Anki repo against this note's path. Nothing here writes to his collection, so
+don't offer to. Your side of the contract is that the selections are in the note
+and each one says why it survived.
 
 ### Writing quiz questions (applies to every `quiz`)
 
@@ -157,7 +223,7 @@ For every node — each unconditional truth *and* each non-trivial reasoning ste
    - If it's a derived step: build it up from what's already established via a motivated move, Socratic or expository, answering "how could I have discovered this?" When a Socratic step has a gradable right/wrong answer, pose it with `quiz` even though he's attempting the discovery. Gradable and Socratic is normal, not a contradiction. Only fall back to `ask_user_question` if there's genuinely no right answer.
 3. **Connect.** Make the dependency edge explicit. Show exactly how this new node hangs off the ones already in place, so it's understood rather than memorized.
 4. **Quiz-check.** Confirm the node actually landed with a quick `quiz`, grade the typed answer with `quiz_grade` as soon as it comes back, and read his wording for what's thin even when the verdict is correct. This applies to foundations just as much as to derived steps: an unconfirmed unconditional truth is exactly as dangerous as an unconfirmed derived fact, so if he misses it, that node isn't solid and you stop and fix it before building anything on top.
-5. **Record.** Write the node's entry into the session note before you start the next node, with his answer and the verdict, and update the Open section in the same edit. A node you're about to re-teach because he missed it gets recorded as missed, and the second pass gets its own entry, so the note shows what was hard rather than a clean run that didn't happen.
+5. **Record.** Write the node's entry into the session note before you start the next node, with his answer and the verdict, and update the Open section in the same edit. Decide the node's cards here too, while his answer is still in front of you, and write them into the entry. A node that just landed after a miss is where the criteria bite hardest: the thing he got wrong the first time is usually the card. A node you're about to re-teach because he missed it gets recorded as missed, and the second pass gets its own entry, so the note shows what was hard rather than a clean run that didn't happen.
 
 Repeat the full loop per node. Don't front-load all the foundations at the start and then stop checking. Any time a new unconditional truth is needed mid-session, it goes through motivate → establish → connect → quiz-check just like a derived step.
 
