@@ -150,10 +150,90 @@ bracket that already holds an ID means that card exists, so leave it alone.
 When a node earns nothing, write `**Cards:** none.` so a later reader can see it
 was considered rather than skipped.
 
-The handoff is manual and he drives it: he runs the `anki-cards` skill in his
-Anki repo against this note's path. Nothing here writes to his collection, so
-don't offer to. Your side of the contract is that the selections are in the note
-and each one says why it survived.
+Your side of the contract stays the selection and the reason: the facts are in
+the note, and each one says why it survived. The wording, the deck and the IDs
+belong to the `anki-cards` skill in his Anki repo, and importing into Anki is
+his. Starting the run that authors them is yours, and a pause is when you start
+it.
+
+### Pausing a session
+
+He stops mid-topic far more often than he finishes a topic. The pause is where
+the session's cards get authored, so he can review them in Anki while the session
+is cold and come back without having lost what it established.
+
+**Notice the pause.** "Let's pause", "that's enough for today", "I'll come back
+to this", a flat "I have to go". You can also offer one with `ask_user_question`
+when a node has just landed and the next opens a fresh strand. Offer once, and
+drop it if he keeps going.
+
+Often there is no signal at all, because he just stops. So treat the run as owed
+rather than as an event. Any unfilled `[ ]` bracket in the note is a selection
+that never reached Anki, whatever session left it there, and Phase 1 collects
+those when you read the note at the start of the next session. That is the
+catch-up path for every pause you never saw.
+
+**Finish the note before you dispatch.** The current node's entry written, its
+`**Cards:**` block decided, the Open section current, and `(in progress)` struck
+from any node heading that has since landed. The run reads the note and nothing
+else, so a selection still in your head gets no card. Pausing mid-node is the
+normal case and needs nothing special: only a node that landed gets cards, so an
+open node yields nothing now and gets its cards in the session that lands it.
+
+Never clear a bracket that already holds an ID. The note is the durable record of
+every `<topic>-NNNN` allocated for the topic, and the run reads it to know where
+to continue counting from.
+
+**A card that already exists and needs deepening.** A later pause sometimes
+sharpens what an earlier one carded, when a thin pass finally gets its mechanism
+or a misconception grows back. Write it with an empty bracket like any other
+selection, and name the existing ID in the reason:
+
+```markdown
+- `[ ]` The corruption from a mismatched binary is silent. (refines `[coresight-0008]`: on the re-probe he still had only "the binary must match")
+```
+
+The bracket stays `[ ]` because that is what marks a fact as unauthored. Do not
+invent a third marker for a refinement. `[ ]` against an ID is the whole contract
+between the two skills, and a marker the Anki side does not read counts as
+unauthored, so it makes a second card instead of deepening the first. Step 5 of
+`anki-cards` does the right thing with a named ID: it edits that card's line in
+place and keeps the ID, so the import updates the note he has been reviewing and
+its scheduling survives. The run writes that same ID into the refinement's
+bracket, so the note ends up holding one ID against two facts, which is what a
+deepened card looks like in the record.
+
+**Start the run.** The procedure lives in his Anki repo and it is a long file, so
+hand over the path and let the run read it rather than restating any of it here:
+
+> Work from his Anki repo, `~/develop/anki_processing` on this machine. Every
+> path and command in that skill is relative to that repo root, including
+> `./venv/bin/python`. Read `.claude/skills/anki-cards/SKILL.md` and follow it
+> from Step 3b, the branch for a teaching session note. The note is
+> `<absolute path to sessions/<topic>.md>`. Author every unfilled `[ ]` selection
+> in it and nothing else, and write the ID you allocate back into its bracket. A
+> selection whose reason names an existing ID is a refinement of that card, so
+> merge it and write that same ID back. Generate the package and copy it out of
+> `generated_decks/` before you do anything else, because the next generator run
+> sweeps that directory into `archive/`. Report the package's absolute path, the
+> IDs you allocated, any card you merged into, anything you could not author, and
+> the date of the corpus you checked against plus whether it held any cards for
+> this topic.
+
+Run it in a general-purpose subagent if your setup has one. The three agents in
+`agents/` are a web researcher and two diagram makers, and none of them can write
+files in another repo, so under pi do the run in this session.
+
+**Then tell him, in a line or two.** The package path, anything the run could not
+author, and the corpus it checked against. If that corpus held no cards for this
+topic, the check against his collection covered nothing, and the only thing that
+caught a repeat was the topic's own candidate files. Say so, and pass on the part
+only he can do: in Anki, File → Export → All Decks, then `dump_apkg.py` on the
+export. He imports the package himself.
+
+If the run comes back without a package, say that in one line with what it
+reported, leave the brackets as they are, and carry on with the lesson. The
+selections are still in the note, so the next session's catch-up picks them up.
 
 ### Writing quiz questions (applies to every `quiz`)
 
@@ -173,7 +253,7 @@ An "I don't know" is its own outcome, not a wrong answer. It means he declined t
 
 You can't teach into his zone of proximal development without knowing where its edges are, and you can't aim the teaching without knowing what he's actually reaching for. Two separate unknowns, two separate tools. Keep the boundary clean.
 
-**First, check for a note on this topic.** If `sessions/` already holds one, read it before you probe. It tells you where his edge sat last time, which nodes are already established, and what was left open, so the probe starts from there instead of from scratch. Read it as a record of the last session, not as current fact: he may have forgotten some of it, and confirming a node from the note still takes a `quiz`.
+**First, check for a note on this topic.** If `sessions/` already holds one, read it before you probe. It tells you where his edge sat last time, which nodes are already established, and what was left open, so the probe starts from there instead of from scratch. Read it as a record of the last session, not as current fact: he may have forgotten some of it, and confirming a node from the note still takes a `quiz`. Two things in it want acting on first. Any unfilled `[ ]` bracket means a pause whose cards were never authored, so start that run first (see "Pausing a session") and let his review deck catch up with the note. And ask whether he has been reviewing the cards the last pause did author, because those facts are the one part of the note that may have moved on since it was written. A thin pass the note flagged for re-probing is the first place to look for whether the drilling closed it.
 
 **1a. His current level — use `quiz`.** This is a mapping job, not a spot-check. Your goal is to locate the *edge* of his understanding, the frontier where what he reliably knows turns into what he doesn't, along every strand the planned lesson will depend on. Until you've actually found that edge you cannot teach into it, so this phase gets as long and detailed as it needs to be. There is no rush.
 
