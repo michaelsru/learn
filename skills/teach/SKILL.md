@@ -7,7 +7,7 @@ description: Teach the user anything so it actually locks in and is understood, 
 
 Two principles. Use both on every explanation you give him, from a one-liner to a deep dive.
 
-The goal is never "he can recite the fact." The goal is understanding: the fact is derivable from foundations he already accepts, connected into his mental model, and therefore self-preserving. Memorized facts rot. Understood facts don't.
+The goal is never "he can recite the fact." The goal is understanding: the fact is derivable from foundations he already accepts, connected into his mental model, and therefore durable. Memorized facts rot fast. Understood facts rot slowly, and when one slips, the roots it hangs off can rebuild it.
 
 ## The philosophy (why this works)
 
@@ -98,16 +98,19 @@ whoever reads the note afterwards. You are the only one who sees his typed
 answers, what he hedged, and what he got wrong on the first pass, and that is the
 whole basis for the choice.
 
-Most of a session needs no cards. That follows from the philosophy above: an
-understood fact is held in place by its connections and doesn't rot, so drilling
-it buys nothing and costs him review time every day. Cards are for the residue,
-the facts that understanding can't keep.
+Most of a session needs no cards. An understood fact decays slowly because its
+connections hold it up, and when it slips, re-deriving it is the repair. Slowly
+is not never. Course material that was understood still loses much of its detail
+over the first two or three years without use, and names go fastest (Conway,
+Cohen & Stanhope 1991). Cards are for the facts that understanding keeps worst,
+plus one card per root that keeps the derivations themselves in practice.
 
-One test, applied to everything you're tempted to card: **could he regenerate
-this from what he already holds?** If he could, no card. A derived step hangs off
-its parents, and when it slips, re-deriving it is the repair.
+One test, applied to everything you're tempted to card: **is re-deriving this
+quick and reliable for him?** If it is, no card. A step he reached in a sentence,
+from parents he holds, re-derives as fast as a card would review. A step that
+took him minutes, or that he got wrong on the way, fails the test.
 
-What survives the test:
+What gets a card:
 
 - **Convention.** Names, acronyms, numbers fixed by a standard, register and
   field names, measured constants. No amount of understanding reproduces an
@@ -120,6 +123,13 @@ What survives the test:
   without the mechanism, or he hedged his way there. Card the thin part alone,
   not the node around it. Anything you wrote into Open as worth re-probing is the
   same case.
+- **A keystone.** One per root of the dependency map, written once a node built
+  on that root has landed. It asks him to apply the root to a case the session
+  didn't cover, and the answer is one sentence that follows from the root. The
+  other three kinds are facts, and drilling facts doesn't maintain reasoning.
+  Without a keystone, the derivations get practiced only when he reopens the
+  topic, and nothing schedules that. A root he held before the session still
+  gets one, because the card drills applying the root, which he didn't hold.
 
 Two rules keep the set small:
 
@@ -129,19 +139,23 @@ Two rules keep the set small:
   nothing, and they get their cards in the session that finally lands them.
 - **Nothing he already held gets a card.** Phase 1a established that he has it.
 
-A handful per session is the normal yield. If a session produces more cards than
-it had nodes, you carded the derivation instead of the residue, so go back and
-apply the test again.
+A handful per session is the normal yield, plus conventions, which a dense topic
+legitimately has many of. Every reason has to point at a convention, at a root,
+or at something he said or missed. A reason that can only say the fact matters
+means you carded the derivation, so drop that card.
 
-Record them inside the node's entry, in the same edit that records the node:
+Record them inside the node's entry, in the same edit that records the node. A
+keystone goes in the entry of the node that landed it:
 
 ```markdown
 **Cards:**
 - `[ ]` Trace decoded against a mismatched binary comes out plausible and wrong, not as an error. (thin pass: he had "the binary must match" without the silent part)
 - `[ ]` ETB and ETR are two configurations of one block, the TMC. (convention, nothing derives the name)
+- `[ ]` Why can a sampling profiler that interrupts the core thousands of times a second hide the timing bug it is chasing? Each interrupt runs code on the core and shifts the timing it is trying to measure. (keystone: root B, observing perturbs)
 ```
 
-Write the fact and the reason it survived the test. Nothing else. The wording,
+Write the fact and the reason it survived the test. Nothing else. For a keystone
+the fact is the question and its one-sentence answer. The wording,
 the cloze deletions, the deck and the scope tags belong to the authoring skill in
 his Anki repo, which has the format rules and the existing collection to check
 against, and which will fill the empty brackets with the ID it allocates. A
@@ -302,7 +316,7 @@ For every node — each unconditional truth *and* each non-trivial reasoning ste
    - If it's a foundational unconditional truth: state it plainly, at face value, no caveats. Surface an atomic unit if one fits.
    - If it's a derived step: build it up from what's already established via a motivated move, Socratic or expository, answering "how could I have discovered this?" When a Socratic step has a gradable right/wrong answer, pose it with `quiz` even though he's attempting the discovery. Gradable and Socratic is normal, not a contradiction. Only fall back to `ask_user_question` if there's genuinely no right answer.
 3. **Connect.** Make the dependency edge explicit. Show exactly how this new node hangs off the ones already in place, so it's understood rather than memorized.
-4. **Quiz-check.** Confirm the node actually landed with a quick `quiz`, grade the typed answer with `quiz_grade` as soon as it comes back, and read his wording for what's thin even when the verdict is correct. This applies to foundations just as much as to derived steps: an unconfirmed unconditional truth is exactly as dangerous as an unconfirmed derived fact, so if he misses it, that node isn't solid and you stop and fix it before building anything on top.
+4. **Quiz-check.** Confirm the node actually landed with a quick `quiz`, grade the typed answer with `quiz_grade` as soon as it comes back, and read his wording for what's thin even when the verdict is correct. This applies to foundations just as much as to derived steps: an unconfirmed unconditional truth is exactly as dangerous as an unconfirmed derived fact, so if he misses it, that node isn't solid and you stop and fix it before building anything on top. Without the `quiz` tool, ask the same question in chat and wait for his typed reply. A node he never answered has not landed, however clearly you taught it, and it earns no cards.
 5. **Record.** Write the node's entry into the session note before you start the next node, with his answer and the verdict, and update the Open section in the same edit. Decide the node's cards here too, while his answer is still in front of you, and write them into the entry. A node that just landed after a miss is where the criteria bite hardest: the thing he got wrong the first time is usually the card. A node you're about to re-teach because he missed it gets recorded as missed, and the second pass gets its own entry, so the note shows what was hard rather than a clean run that didn't happen.
 
 Repeat the full loop per node. Don't front-load all the foundations at the start and then stop checking. Any time a new unconditional truth is needed mid-session, it goes through motivate → establish → connect → quiz-check just like a derived step.
