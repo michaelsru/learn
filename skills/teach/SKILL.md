@@ -1,151 +1,120 @@
 ---
 name: teach
-description: Teach the user anything so it actually locks in and is understood, not just memorized. Use ANY time you're explaining or teaching him something — even a quick explanation. Based on two teaching principles he has personally verified to work for years.
+description: Teach the user anything so he understands it well enough to rebuild it later, instead of only memorizing it. Use ANY time you explain or teach him something, even a quick explanation. Based on two teaching principles he has used on himself for years and knows work.
 ---
 
 # Teaching
 
-Two principles. Use both on every explanation you give him, from a one-liner to a deep dive.
+Use two principles on every explanation you give him, from a one-line answer to a long lesson.
 
-The goal is never "he can recite the fact." The goal is understanding: the fact is derivable from foundations he already accepts, connected into his mental model, and therefore durable. Memorized facts rot fast. Understood facts rot slowly, and when one slips, the roots it hangs off can rebuild it.
+The goal is understanding. He should be able to derive each fact from foundations he already accepts, so it connects to what he knows and lasts. Memorized facts fade fast. Understood facts fade slowly, and when one slips he can rebuild it from the facts it depends on.
 
-## The philosophy (why this works)
+## Why this works
 
-Two brains can hold the same propositions and look identical from the outside, giving the same answers to the same questions. But one holds a pile of disconnected lone facts (A). The other holds a few core truths from which all those facts are derivable (B), so to it the facts are obviously connected. That connection *is* understanding: a graph of dependencies instead of disjoint lonely nodes.
+Two people can hold the same facts and give the same answers to the same questions. One holds them as separate facts. The other holds a few core truths and can derive every fact from them, so for him the facts are connected. That connection is understanding. It is a graph of dependencies instead of a set of unconnected nodes.
 
-Understanding also preserves knowledge, because it's held in place by its connections, and it compresses it. Every teaching move below exists to build that dependency graph in his head: nodes (Principle i) and edges (Principle ii).
+Connected knowledge lasts longer, because each fact is held in place by the facts it depends on. It also takes less to hold, because a few truths generate the rest. Everything in this skill builds that dependency graph in his head. Principle 1 builds the nodes and Principle 2 builds the edges.
 
-What it feels like from the inside is the click — a pile of lonely facts collapsing into a few generating ideas, the same information with far fewer moving parts. Aim for that.
+When it works, he ends up with a few ideas that generate many facts. He holds the same information in far fewer separate pieces. That is the target.
 
-One mechanism to keep in mind: the brain won't fully commit to a fact it isn't sure is safe to lock in. If something more fundamental might later contradict it, committing is risky, because it would force an expensive update. So the brain hedges and the fact never really lands. Both principles remove that risk, in different ways.
+The brain won't fully commit to a fact unless it is sure the fact is safe to keep. If something more basic might contradict the fact later, committing is risky, because he would have to revise it. So the brain holds the fact loosely and it never sticks. Both principles remove that risk in different ways.
 
-## Principle i — Unconditional truths first
+## Principle 1: unconditional truths first
 
-Start from the ground. Lock in the core, always-true unconditional truths before anything built on top of them.
+Start from the ground. Get him to accept the core truths that hold unconditionally before you teach anything built on them.
 
-The reason isn't that bottom-up is the logically "correct" order. It's that unconditional truths are the *easiest* thing for the brain to accept and lock in. They're safe, so they commit instantly, and they give him the first solid ground to stand on and build from. That matters most when the subject is entirely new and there's little to connect to yet.
+Start here because unconditional truths are the easiest facts for the brain to accept. Nothing can contradict them, so he commits to them at once, and they give him something solid to build on. This matters most when the subject is new to him and he has little to connect it to.
 
-**Terminology.** Keep these two apart, and don't overuse "axiom." An *unconditional truth* is a fact he can accept as-is, at face value, with no caveats or nuance — a property of *how the fact is held*. An *axiom* is a fact that follows from nothing else — a property of *where it sits in the graph* (a root node with no incoming edges). They overlap but aren't synonyms. An axiom that's also caveat-free is one kind of unconditional truth, but plenty of unconditional truths do derive from deeper things; they simply don't need that derivation to be safely accepted. Default to saying "unconditional truth" and reserve "axiom" for facts that genuinely bottom out. Don't call something an axiom just because it sounds foundational.
+Keep two terms apart, and use "axiom" sparingly. An unconditional truth is a fact he can accept as stated, with no caveats. That describes how he holds the fact. An axiom is a fact that follows from nothing else. That describes where it sits in the graph, as a root node with no incoming edges. The two overlap but mean different things. A caveat-free axiom is one kind of unconditional truth, but many unconditional truths derive from deeper facts. He just doesn't need the derivation to accept them safely. Say "unconditional truth" by default, and use "axiom" only for a fact that has nothing below it. Don't call something an axiom because it sounds foundational.
 
-- Find the few hard facts he can take at face value, often first principles that don't depend on anything else, though they needn't be true roots. There may be very few, which is fine: a couple of solid ones are worth more than a long shaky list.
-- They must be simple enough to be accepted as-is, without nuance or caveats. No "well, usually…". If it needs conditions, it isn't an unconditional truth yet, so dig down further.
-- These can be committed to instantly and safely, because nothing more fundamental will come along to contradict them. That safety is what makes them lock in.
-- Build everything else up from these, explicitly, so he can see each new fact resting on the foundation.
+- Find the few hard facts he can accept as stated. These are often first principles that depend on nothing else, though they don't have to be roots of the graph. There may be very few. Two solid ones are better than a long shaky list.
+- Each must be simple enough to accept with no conditions or caveats. No "well, usually". If it needs conditions, it isn't an unconditional truth yet, so dig further down.
+- He can commit to these at once and safely, because nothing more basic will contradict them. That safety is why they stick.
+- Build everything else on top of these, explicitly, so he can see each new fact resting on them.
 
-**Confirm the foundation before building on it.** Briefly check that each core truth actually reads as obviously and unconditionally true *to him* before you add structure on top. If one doesn't read as solid, stop and fix it before hanging anything off it.
+Check each core truth before you build on it. Briefly confirm that it reads as obviously and unconditionally true to him. If one doesn't, stop and fix it before you hang anything on it.
 
-Two forms of unconditional truth are worth reaching for:
+Two forms of unconditional truth work well:
 
-- **Universal statements** — *"all X are Y"* or *"no X is Y"*. These are easy for the brain to lock in because they admit no exceptions to hedge against. A clean atomic-unit version (*"ALL X is done through {____}"*, e.g. *"ALL communication between computers is done through {sending packets}"*) is a particularly strong special case. Surface it when a domain has one, but treat it as one shape of universal statement rather than the only one.
-- **Real definitions** — a genuine definition is a great place to start, but only if it's an *actual* definition rather than a vague list of properties dressed up as one. If it's "things that tend to be true of X," it isn't a definition and won't anchor anything.
+- Universal statements, of the form "all X are Y" or "no X is Y". The brain locks these in easily because they have no exceptions to hedge against. A strong special case names an atomic unit, "ALL X is done through {____}", for example "ALL communication between computers is done through {sending packets}". Use it when a domain has one, but it is one kind of universal statement among others.
+- Real definitions. A real definition is a good place to start. A list of properties that tend to be true of X is not a definition, and it won't anchor anything.
 
-Don't force either where there isn't a clean one.
+Don't force either form where there isn't a clean one.
 
-## Principle ii — "How could I have discovered this?"
+## Principle 2: "How could I have discovered this?"
 
-Facts feel arbitrary when there's no visible reason they *had* to be this way. "Why does it need to be like this? Feels arbitrary." The brain won't commit to arbitrary-feeling info. The fix is to make it feel discovered rather than decreed.
+A fact feels arbitrary when he can't see why it had to be this way. He'll ask "Why does it need to be like this?" The brain won't commit to a fact that feels arbitrary. The fix is to show how someone would discover it.
 
-Walk him through how he could have discovered the thing himself. Every step must be *motivated*:
+Walk him through how he could have discovered the thing himself. Motivate every step:
 
-- Start from square one: why are we even doing this? What core problem sends us down this path?
-- Motivate every intermediate step too. Why try *this* formula? Why manipulate the equation *this* way? What could have led someone to this approach in the first place?
-- The output is turning disconnected propositions into connected ones, which is what adds the edges to the graph.
+- Start at the beginning. What problem makes us need this at all?
+- Motivate each intermediate step too. Why try this formula? Why rearrange the equation this way? What would lead someone to this approach in the first place?
+- Each motivated step connects two facts, which adds an edge to the graph.
 
-3Blue1Brown (Grant Sanderson) is the reference to aim at: nothing appears from nowhere, and every move feels like something the learner might have reached for themselves.
+Aim for the way Grant Sanderson teaches in his 3Blue1Brown videos. Nothing appears from nowhere, and each step is one the learner could have thought of himself.
 
-### Socratic vs expository — adaptive
+### Socratic or expository
 
-Choose per topic and per his apparent energy:
+Pick per topic and per how much energy he seems to have.
 
-- **Socratic** — pose the motivating problem and let him attempt the discovery before you reveal. More effortful, and it locks in harder. Default to this when he can plausibly reason his way there. "Let him attempt it" is about *who speaks first*, not about grading: if the question you pose has a definite right answer, it's gradable, so use `quiz` rather than `ask_user_question` — `quiz` is open-ended anyway, since he types the answer himself. Reserve `ask_user_question` for genuine no-right-answer forks: preferences, direction, what he wants next.
-- **Expository** — narrate the motivated discovery path yourself, 3B1B style, with no back-and-forth. Use this when the topic is beyond cold-reasoning reach, or when he's low-energy or wants it delivered.
+- Socratic. Pose the motivating problem and let him try to discover the answer before you give it. It takes more effort, and it sticks better. Use this by default when he can plausibly reason his way there. Letting him try decides who speaks first. It doesn't decide the tool. If the question has a definite right answer it is gradable, so use `quiz`. `quiz` is open-ended anyway, because he types the answer himself. Use `ask_user_question` only for questions with no right answer, such as his preferences, the direction to take, or what he wants next.
+- Expository. Narrate the discovery path yourself the way 3Blue1Brown does, with each step motivated and no back-and-forth. Use this when the topic is too far from what he can reason out cold, or when he is tired or wants it delivered.
 
-When unsure, lean Socratic for things he can clearly reason about; otherwise narrate.
+When unsure, go Socratic for things he can clearly reason about and narrate the rest.
 
-## The process: probe → plan → teach
+## The process: probe, plan, teach
 
-The two principles are *how* you teach. This is *when* — the shape of a teaching session. Run all three phases in order, every time, and scale each phase's *size* to the topic, never its *shape*.
+The two principles say how to teach. This section says when, and gives every session its shape. Run all three phases in order every time. Scale the size of each phase to the topic, and keep the shape the same.
 
-**Verify, don't wing it from memory.** He has to be able to trust the teacher completely, and one confidently-delivered hallucination poisons that. Working from memory alone is where LLMs invent things, so the moment you are even slightly unsure of any fact, name, date, formula, definition, or claim, stop and confirm it with a quick `researcher` subagent before you say it. Pausing to verify is always acceptable; accuracy comes before flow. If a check changes or corrects what you were about to teach, say so plainly rather than quietly papering over it. A wrong unconditional truth or a wrong "discovered" step corrupts every node built on top of it.
+Verify facts instead of relying on memory. He has to be able to trust the teacher completely, and one confident hallucination breaks that. LLMs invent things when they work from memory alone. So whenever you are even slightly unsure of a fact, name, date, formula, definition, or claim, stop and check it with a quick `researcher` subagent before you say it. Pausing to verify is always fine. Accuracy comes before flow. If a check changes what you were about to teach, tell him plainly. A wrong unconditional truth or a wrong discovery step corrupts every node built on it.
 
 ### The session note
 
-Every session leaves behind a markdown file he can re-read later. One file per topic, `sessions/<topic-slug>.md`, relative to the project root. Create the folder if it isn't there. Each session on that topic appends to the same file under its own `## <YYYY-MM-DD>` heading, so the whole history of a topic sits in one place and you can read the last session before planning the next one.
+Every session leaves a markdown file he can re-read later. Use one file per topic, `sessions/<topic-slug>.md`, relative to the project root. Create the folder if it doesn't exist. Each session on that topic appends to the same file under its own `## <YYYY-MM-DD>` heading. That keeps the whole history of a topic in one place, and you can read the last session before you plan the next one.
 
-Writing it is part of the session, not a wrap-up at the end. You create it in Phase 2 and add to it as each node lands in Phase 3, so an interrupted session still leaves a usable record.
+The note is re-read at the start of every later session, and its wording gets copied into what you say. So write it through unslop like any reply, including the node headings and the mermaid labels. Keep his quiz answers verbatim.
 
-What goes in it:
+Write the note during the session. You create it in Phase 2 and add to it as each node lands in Phase 3, so an interrupted session still leaves a usable record.
 
-- What he said he wanted out of this session (Phase 1b).
-- Where his edge sat when you found it (Phase 1a): what he already held, and where it ran out. That's the part that's hardest to reconstruct later and the most useful when you pick the topic back up.
+The note holds:
+
+- What he said he wanted from this session, from Phase 1b.
+- Where his edge was when you found it in Phase 1a, meaning what he already knew and where it ran out. This is the hardest part to reconstruct later and the most useful when you return to the topic.
 - The approach prose and the mermaid dependency map from Phase 2.
-- One entry per node as it lands: the node, how it was established, his quiz answer in his own words, and the verdict. Note anything thin in his wording even when the verdict was correct.
+- One entry per node as it lands. The entry gives the node, how you established it, his quiz answer in his own words, and the verdict. Note anything thin in his wording even when the verdict was correct.
 - The cards that node earned, if any. See "Cards" below.
-- A rolling "Open" section at the end of the session's entry: nodes not reached yet, gaps you found and haven't taught into, anything he half-got. Rewrite it as you go rather than saving it for the end. He doesn't announce when a session is over, he just stops, so the only version of that section that ever gets written is the one that's already current.
+- An Open section at the end of the session's entry. It lists nodes not reached yet, gaps you found and haven't taught, and anything he half understood. Rewrite it as you go. He doesn't announce the end of a session. He just stops, so the Open section has to be current at every point.
 
-How much of the teaching itself you write into the note depends on whether something else is already capturing the session verbatim.
+How much of the teaching goes into the note depends on whether something else is already recording the session word for word.
 
-- The `md-log` extension mirrors the whole session into a markdown file he links with `/md-log <path>`, usually a note in his Obsidian vault. While that's running the transcript already exists, so keep the note to the skeleton above and don't re-narrate the lesson into it.
-- When nothing is mirroring, the note is the only record. Write the teaching into it too: the motivated path for each node, in enough detail that it reads correctly cold, months later.
+- The `md-log` extension mirrors the whole session into a markdown file he links with `/md-log <path>`, usually a note in his Obsidian vault. While it runs, the transcript already exists. Keep the note to the contents listed above and don't retell the lesson in it.
+- When nothing is mirroring, the note is the only record. Write the teaching into it too. Give the motivated path for each node, with enough detail that it reads correctly months later without any other context.
 
-If the `quiz` and `ask_user_question` tools aren't in your tool list you aren't running in pi, so nothing is mirroring and the fuller version is the one to write. If you are in pi and can't tell whether a file is linked, fold the question into the Phase 1b questions you're already asking him.
+If the `quiz` and `ask_user_question` tools aren't in your tool list, you aren't running in pi. Nothing is mirroring, so write the fuller version. If you are in pi and can't tell whether a file is linked, add that question to the Phase 1b questions you're already asking.
 
-### Cards — what won't hold on its own
+### Cards
 
-He keeps an Anki collection, and the cards from a session get authored later from
-this note. Choosing which facts deserve one is part of teaching, not a job for
-whoever reads the note afterwards. You are the only one who sees his typed
-answers, what he hedged, and what he got wrong on the first pass, and that is the
-whole basis for the choice.
+He keeps an Anki collection, and the cards from a session are written later from this note. Choosing which facts get a card is your job as the teacher. Only you see his typed answers, what he hedged, and what he got wrong on the first try, and those are the basis for the choice.
 
-Most of a session needs no cards. An understood fact decays slowly because its
-connections hold it up, and when it slips, re-deriving it is the repair. Slowly
-is not never. Course material that was understood still loses much of its detail
-over the first two or three years without use, and names go fastest (Conway,
-Cohen & Stanhope 1991). Cards are for the facts that understanding keeps worst,
-plus one card per root that keeps the derivations themselves in practice.
+Most of a session needs no cards. An understood fact decays slowly because the facts it connects to hold it up, and when it slips, re-deriving it repairs it. Slow decay is still decay. A 1991 study by Conway, Cohen and Stanhope found that students lose much of the detail of course material they understood over the first two or three years without use, and names go fastest. Cards are for the facts understanding keeps worst, plus one card per root to keep him practicing the derivations.
 
-One test, applied to everything you're tempted to card: **is re-deriving this
-quick and reliable for him?** If it is, no card. A step he reached in a sentence,
-from parents he holds, re-derives as fast as a card would review. A step that
-took him minutes, or that he got wrong on the way, fails the test.
+Apply one test to everything you're tempted to card. Is re-deriving this quick and reliable for him? If it is, it gets no card. A step he reached in one sentence, from parent nodes he holds, re-derives as fast as a card reviews. A step that took him minutes, or that he got wrong along the way, fails the test.
 
-What gets a card:
+These get a card:
 
-- **Convention.** Names, acronyms, numbers fixed by a standard, register and
-  field names, measured constants. No amount of understanding reproduces an
-  arbitrary name. These are the stretches you taught expository because there was
-  nothing to discover, and they are what Anki is genuinely good for.
-- **A corrected misconception.** A wrong model that got dislodged tends to grow
-  back, and it is worse than a gap because it feels like knowledge. Card the
-  corrected version, aimed so the old model is the tempting wrong answer.
-- **A thin pass.** He was graded correct, but his wording gave the conclusion
-  without the mechanism, or he hedged his way there. Card the thin part alone,
-  not the node around it. Anything you wrote into Open as worth re-probing is the
-  same case.
-- **A keystone.** One per root of the dependency map, written once a node built
-  on that root has landed. It asks him to apply the root to a case the session
-  didn't cover, and the answer is one sentence that follows from the root. The
-  other three kinds are facts, and drilling facts doesn't maintain reasoning.
-  Without a keystone, the derivations get practiced only when he reopens the
-  topic, and nothing schedules that. A root he held before the session still
-  gets one, because the card drills applying the root, which he didn't hold.
+- **Convention.** Names, acronyms, numbers fixed by a standard, register and field names, measured constants. Understanding can't reproduce an arbitrary name. You taught these stretches expository because there was nothing to discover, and Anki works well for them.
+- **A corrected misconception.** A wrong model he dropped tends to come back, and it is worse than a gap because it feels like knowledge. Card the corrected version, and word it so the old model is the tempting wrong answer.
+- **A thin pass.** He was graded correct, but his answer gave the conclusion without the mechanism, or he hedged his way to it. Card only the thin part, not the whole node. Anything you wrote into Open as needing a re-probe counts here too.
+- **A keystone.** One per root of the dependency map, written once a node built on that root has landed. It asks him to apply the root to a case the session didn't cover, and the answer is one sentence that follows from the root. The other three kinds are facts, and drilling facts doesn't keep his reasoning in practice. Without a keystone he practices the derivations only when he reopens the topic, and nothing schedules that. A root he held before the session still gets a keystone, because the card drills applying the root, and that is new to him.
 
 Two rules keep the set small:
 
-- **Only a node that landed gets cards.** A card for something not yet taught is
-  a memorized fact with nothing underneath it, which is what this whole skill
-  exists to prevent. Nodes still open, half-answered or never reached produce
-  nothing, and they get their cards in the session that finally lands them.
-- **Nothing he already held gets a card.** Phase 1a established that he has it.
+- Only a node that landed gets cards. A card for something not yet taught is a memorized fact with nothing underneath it, which is what this skill exists to prevent. Nodes still open, half answered, or never reached get no cards now. They get their cards in the session that lands them.
+- Nothing he already knew gets a card. Phase 1a showed he has it.
 
-A handful per session is the normal yield, plus conventions, which a dense topic
-legitimately has many of. Every reason has to point at a convention, at a root,
-or at something he said or missed. A reason that can only say the fact matters
-means you carded the derivation, so drop that card.
+A normal session yields a handful of cards, plus conventions. A dense topic can have many conventions. Every reason has to point at a convention, at a root, or at something he said or missed. If the only reason you can give is that the fact matters, you carded a derivation, so drop that card.
 
-Record them inside the node's entry, in the same edit that records the node. A
-keystone goes in the entry of the node that landed it:
+Record the cards inside the node's entry, in the same edit that records the node. A keystone goes in the entry of the node that landed it:
 
 ```markdown
 **Cards:**
@@ -154,71 +123,33 @@ keystone goes in the entry of the node that landed it:
 - `[ ]` Why can a sampling profiler that interrupts the core thousands of times a second hide the timing bug it is chasing? Each interrupt runs code on the core and shifts the timing it is trying to measure. (keystone: root B, observing perturbs)
 ```
 
-Write the fact and the reason it survived the test. Nothing else. For a keystone
-the fact is the question and its one-sentence answer. The wording,
-the cloze deletions, the deck and the scope tags belong to the authoring skill in
-his Anki repo, which has the format rules and the existing collection to check
-against, and which will fill the empty brackets with the ID it allocates. A
-bracket that already holds an ID means that card exists, so leave it alone.
+Write the fact and the reason it passed the test, and nothing else. For a keystone, the fact is the question plus its one-sentence answer. The `anki-cards` skill in his Anki repo handles the wording, the cloze deletions, the deck, and the scope tags. It has the format rules and the existing collection to check against, and it fills each empty bracket with the ID it allocates. A bracket that already holds an ID means that card exists, so leave it alone.
 
-When a node earns nothing, write `**Cards:** none.` so a later reader can see it
-was considered rather than skipped.
+When a node earns no cards, write `**Cards:** none.` so a later reader can see you considered it.
 
-Your side of the contract stays the selection and the reason: the facts are in
-the note, and each one says why it survived. The wording, the deck and the IDs
-belong to the `anki-cards` skill in his Anki repo, and importing into Anki is
-his. Starting the run that authors them is yours, and a pause is when you start
-it.
+Your part of the contract is the selection and the reason. The facts are in the note, and each one says why it passed. The `anki-cards` skill owns the wording, the deck, and the IDs, and he does the import into Anki himself. You start the run that authors the cards, and you start it when he pauses.
 
 ### Pausing a session
 
-He stops mid-topic far more often than he finishes a topic. The pause is where
-the session's cards get authored, so he can review them in Anki while the session
-is cold and come back without having lost what it established.
+He stops mid-topic far more often than he finishes one. The session's cards get authored at the pause, so he can review them in Anki between sessions and come back without losing what the session established.
 
-**Notice the pause.** "Let's pause", "that's enough for today", "I'll come back
-to this", a flat "I have to go". You can also offer one with `ask_user_question`
-when a node has just landed and the next opens a fresh strand. Offer once, and
-drop it if he keeps going.
+Notice the pause. He may say "Let's pause", "that's enough for today", "I'll come back to this", or just "I have to go". You can also offer a pause with `ask_user_question` when a node has just landed and the next one starts a new strand. Offer once, and drop it if he keeps going.
 
-Often there is no signal at all, because he just stops. So treat the run as owed
-rather than as an event. Any unfilled `[ ]` bracket in the note is a selection
-that never reached Anki, whatever session left it there, and Phase 1 collects
-those when you read the note at the start of the next session. That is the
-catch-up path for every pause you never saw.
+Often there is no signal, because he just stops. So treat the run as owed, even when no pause was announced. Any unfilled `[ ]` bracket in the note is a selection that never reached Anki, from whichever session left it. Phase 1 picks those up when you read the note at the start of the next session. That is how every pause you missed gets caught up.
 
-**Finish the note before you dispatch.** The current node's entry written, its
-`**Cards:**` block decided, the Open section current, and `(in progress)` struck
-from any node heading that has since landed. The run reads the note and nothing
-else, so a selection still in your head gets no card. Pausing mid-node is the
-normal case and needs nothing special: only a node that landed gets cards, so an
-open node yields nothing now and gets its cards in the session that lands it.
+Finish the note before you start the run. Write the current node's entry, decide its `**Cards:**` block, bring the Open section up to date, and remove `(in progress)` from any node heading that has since landed. The run reads the note and nothing else, so a selection you haven't written down gets no card. Pausing mid-node is the normal case and needs nothing special. Only a node that landed gets cards, so an open node yields nothing now and gets its cards in the session that lands it.
 
-Never clear a bracket that already holds an ID. The note is the durable record of
-every `<topic>-NNNN` allocated for the topic, and the run reads it to know where
-to continue counting from.
+Never clear a bracket that already holds an ID. The note is the permanent record of every `<topic>-NNNN` ID allocated for the topic, and the run reads it to know where to continue counting.
 
-**A card that already exists and needs deepening.** A later pause sometimes
-sharpens what an earlier one carded, when a thin pass finally gets its mechanism
-or a misconception grows back. Write it with an empty bracket like any other
-selection, and name the existing ID in the reason:
+A card that already exists sometimes needs deepening. A later pause can improve what an earlier one carded, when a thin pass finally gets its mechanism or a misconception comes back. Write it with an empty bracket like any other selection, and name the existing ID in the reason:
 
 ```markdown
 - `[ ]` The corruption from a mismatched binary is silent. (refines `[coresight-0008]`: on the re-probe he still had only "the binary must match")
 ```
 
-The bracket stays `[ ]` because that is what marks a fact as unauthored. Do not
-invent a third marker for a refinement. `[ ]` against an ID is the whole contract
-between the two skills, and a marker the Anki side does not read counts as
-unauthored, so it makes a second card instead of deepening the first. Step 5 of
-`anki-cards` does the right thing with a named ID: it edits that card's line in
-place and keeps the ID, so the import updates the note he has been reviewing and
-its scheduling survives. The run writes that same ID into the refinement's
-bracket, so the note ends up holding one ID against two facts, which is what a
-deepened card looks like in the record.
+The bracket stays `[ ]` because that marks a fact as unauthored. Don't invent a third marker for a refinement. A `[ ]` bracket with an ID named in the reason is the whole contract between the two skills. The Anki side treats any marker it doesn't read as unauthored, so it would make a second card instead of deepening the first. Step 5 of `anki-cards` handles a named ID correctly. It edits that card's line in place and keeps the ID, so the import updates the note he has been reviewing and keeps its scheduling. The run writes that same ID into the refinement's bracket, so the note ends with one ID against two facts. That is how a deepened card looks in the record.
 
-**Start the run.** The procedure lives in his Anki repo and it is a long file, so
-hand over the path and let the run read it rather than restating any of it here:
+Start the run. The procedure is in his Anki repo and the file is long, so give the run the path and let it read the file. Don't restate the procedure here. Hand it this:
 
 > Work from his Anki repo, `~/develop/anki_processing` on this machine. Every
 > path and command in that skill is relative to that repo root, including
@@ -227,142 +158,135 @@ hand over the path and let the run read it rather than restating any of it here:
 > `<absolute path to sessions/<topic>.md>`. Author every unfilled `[ ]` selection
 > in it and nothing else, and write the ID you allocate back into its bracket. A
 > selection whose reason names an existing ID is a refinement of that card, so
-> merge it and write that same ID back. Generate the package and copy it out of
-> `generated_decks/` before you do anything else, because the next generator run
-> sweeps that directory into `archive/`. Report the package's absolute path, the
-> IDs you allocated, any card you merged into, anything you could not author, and
-> the date of the corpus you checked against plus whether it held any cards for
-> this topic.
+> merge it into that card and write the same ID back. Generate the package and
+> copy it out of `generated_decks/` before you do anything else, because the next
+> generator run moves everything in that directory into `archive/`. Report the
+> package's absolute path, the IDs you allocated, any card you merged into,
+> anything you could not author, and the date of the corpus you checked against
+> and whether it held any cards for this topic.
 
-Run it in a general-purpose subagent if your setup has one. The three agents in
-`agents/` are a web researcher and two diagram makers, and none of them can write
-files in another repo, so under pi do the run in this session.
+Run it in a general-purpose subagent if your setup has one. The three agents in `agents/` are a web researcher and two diagram makers, and none of them can write files in another repo. Under pi, do the run in this session.
 
-**Then tell him, in a line or two.** The package path, anything the run could not
-author, and the corpus it checked against. If that corpus held no cards for this
-topic, the check against his collection covered nothing, and the only thing that
-caught a repeat was the topic's own candidate files. Say so, and pass on the part
-only he can do: in Anki, File → Export → All Decks, then `dump_apkg.py` on the
-export. He imports the package himself.
+Then tell him in a line or two. Give the package path, anything the run could not author, and the corpus it checked against. If that corpus held no cards for this topic, the check against his collection covered nothing, and only the topic's own candidate files could catch a repeat. Tell him that, and give him the step only he can do. In Anki he chooses File, then Export, then All Decks, and runs `dump_apkg.py` on the export. He imports the package himself.
 
-If the run comes back without a package, say that in one line with what it
-reported, leave the brackets as they are, and carry on with the lesson. The
-selections are still in the note, so the next session's catch-up picks them up.
+If the run comes back without a package, tell him in one line what it reported. Leave the brackets as they are and continue the lesson. The selections are still in the note, so the next session's catch-up picks them up.
 
-### Writing quiz questions (applies to every `quiz`)
+### Writing quiz questions
 
-He types his answer. There is nothing to pick from, which removes guessing and moves where the care goes: the work is no longer in building tempting wrong options, it's in scoping the question so it has one definite answer he can produce from recall in a sentence or two.
+These rules apply to every `quiz`. He types his answer and has no options to pick from, so he can't guess. The work moves from writing tempting wrong options to scoping the question so it has one definite answer he can give from memory in a sentence or two.
 
-1. Ask for something with a definite target. "Explain TCP" has no gradable answer; "why does TCP number its segments?" does. If you can't write the answer yourself in two sentences, the question is too broad — split it.
-2. Write `correctAnswer` as the answer in full, not a phrase to match against. His wording will differ from yours, so spell out every part a complete answer has to contain. That's what makes a half-answer visible as a half-answer instead of collapsing into a plain right or wrong.
-3. Don't let the question carry its own answer. "Why does numbering let the receiver reorder packets?" hands him the mechanism; ask what the numbering is *for*.
-4. Grade on substance, not wording. His own words for the right idea are correct. Mark down only when something material is missing or muddled.
-5. Call `quiz_grade` as soon as the answer comes back, before you write anything else. The tool can't grade free text itself, so that call is the only thing that marks the question ✓ or ✗ in his lesson log.
+1. Ask for something with a definite target. "Explain TCP" has no gradable answer. "Why does TCP number its segments?" does. If you can't write the answer yourself in two sentences, the question is too broad, so split it.
+2. Write `correctAnswer` as the full answer, with every part a complete answer must contain. His wording will differ from yours, so it can't be a phrase to match against. Listing every part lets you see a half answer as a half answer, instead of forcing it into right or wrong.
+3. Don't let the question give away its answer. "Why does numbering let the receiver reorder packets?" hands him the mechanism. Ask what the numbering is for.
+4. Grade the substance and ignore the wording. The right idea in his own words is correct. Mark him down only when something material is missing or muddled.
+5. Call `quiz_grade` as soon as the answer comes back, before you write anything else. The tool can't grade free text itself, so that call is the only thing that marks the question right or wrong in his lesson log.
 
-Then read what he actually wrote, not just your own verdict. A typed answer says far more than a picked option would: which words he reaches for, what he hedges, what he leaves out, what he adds that you didn't ask for. That's the material you plan the next node from, and it's the reason the answers are typed.
+Then read what he actually wrote, beyond your verdict. A typed answer shows which words he uses, what he hedges, what he leaves out, and what he adds that you didn't ask for. You plan the next node from that, and it is why the answers are typed.
 
-An "I don't know" is its own outcome, not a wrong answer. It means he declined to guess, so treat it as a clean gap to teach into and don't grade it.
+An "I don't know" is a separate outcome from a wrong answer. He declined to guess. Treat it as a clean gap to teach into, and don't grade it.
 
-### Phase 1 — Probe (never skip this)
+### Phase 1: probe
 
-You can't teach into his zone of proximal development without knowing where its edges are, and you can't aim the teaching without knowing what he's actually reaching for. Two separate unknowns, two separate tools. Keep the boundary clean.
+Never skip this phase. To teach into his zone of proximal development you need to know where its edges are, and to aim the teaching you need to know what he wants. These are two separate unknowns with two separate tools. Keep them apart.
 
-**First, check for a note on this topic.** If `sessions/` already holds one, read it before you probe. It tells you where his edge sat last time, which nodes are already established, and what was left open, so the probe starts from there instead of from scratch. Read it as a record of the last session, not as current fact: he may have forgotten some of it, and confirming a node from the note still takes a `quiz`. Two things in it want acting on first. Any unfilled `[ ]` bracket means a pause whose cards were never authored, so start that run first (see "Pausing a session") and let his review deck catch up with the note. And ask whether he has been reviewing the cards the last pause did author, because those facts are the one part of the note that may have moved on since it was written. A thin pass the note flagged for re-probing is the first place to look for whether the drilling closed it.
+First, check for a note on this topic. If `sessions/` already has one, read it before you probe. It shows where his edge was last time, which nodes are established, and what was left open, so the probe starts there. Treat it as a record of the last session and not as what he knows now. He may have forgotten some of it, and confirming a node from the note still takes a `quiz`. Act on two things in it first. Any unfilled `[ ]` bracket means a pause whose cards were never authored. Start that run first, as described in "Pausing a session", so his review deck catches up with the note. Then ask whether he has been reviewing the cards the last pause authored, because those facts are the one part of the note that may have changed since it was written. If the note flagged a thin pass for a re-probe, check that first to see whether the reviews fixed it.
 
-**1a. His current level — use `quiz`.** This is a mapping job, not a spot-check. Your goal is to locate the *edge* of his understanding, the frontier where what he reliably knows turns into what he doesn't, along every strand the planned lesson will depend on. Until you've actually found that edge you cannot teach into it, so this phase gets as long and detailed as it needs to be. There is no rush.
+**1a. His current level.** Use `quiz`. The job is to map what he knows, and a single spot-check won't do it. Find the edge of his understanding on every strand the lesson will depend on. The edge is where what he reliably knows turns into what he doesn't. You can't teach into it until you've found it, so this phase takes as long as it needs. There is no rush.
 
-The edge is only located once it's bracketed. For each relevant strand you need both halves: something at that level he gets **right** (a floor, proving he knows at least this much) and something he gets **wrong** or genuinely doesn't know (a ceiling, where it runs out). The edge sits between them. One side alone tells you almost nothing.
+You have found the edge only once you have bracketed it. For each relevant strand you need two results. One is a question at that level he gets right, which sets a floor and proves he knows at least that much. The other is a question he gets wrong or doesn't know, which sets a ceiling where his knowledge runs out. The edge sits between them. One without the other tells you almost nothing.
 
-- **All-correct doesn't mean done; it means the questions were too easy.** A run of right answers gives you a floor with no ceiling: you've proven he knows *at least* this much and learned nothing about where his knowledge ends. Do not advance. Escalate, and keep going harder until something finally breaks. If he never misses, you never found the edge.
-- **Binary-search the edge.** When he nails a question, jump the difficulty up *sharply* instead of inching forward. When he misses, you've bracketed the edge from above, so narrow back in to pin exactly where it sits. This finds the frontier fast, without a hundred timid questions.
-- **One wrong answer doesn't mean done either, and it isn't a cue to start teaching.** A single miss is one coordinate, and you don't yet know its kind: a careless slip, a narrow isolated gap, or a systematic misconception. Probe *around* it to characterize it before concluding anything. Misconceptions matter most, because a confidently-held wrong model has to be dislodged rather than topped up, so when you catch one, dig into its extent instead of moving on.
-- **Map every strand the lesson rests on.** A topic has several prerequisite threads, and the edge is a frontier across all of them rather than a single point. Probe each thread the explanation will lean on and find where each one runs out. Bound this by relevance to the goal: map every corner the teaching will depend on, and don't bother with the corners it won't.
+- All-correct doesn't mean done. It means the questions were too easy. A run of right answers gives you a floor with no ceiling. You know he knows at least this much and nothing about where his knowledge ends. Don't move on. Make the questions harder until one breaks. If he never misses, you haven't found the edge.
+- Binary-search for the edge. When he gets a question right, raise the difficulty sharply instead of in small steps. When he misses, you have a ceiling, so narrow back down to find exactly where the edge is. This finds it quickly without dozens of timid questions.
+- One wrong answer doesn't mean done either, and it isn't the signal to start teaching. A single miss is one data point, and you don't know its kind yet. It could be a careless slip, a small isolated gap, or a systematic misconception. Probe around it before you conclude anything. Misconceptions matter most, because he holds the wrong model confidently and you have to remove it before you can add to it. When you find one, find out how far it goes before moving on.
+- Map every strand the lesson depends on. A topic has several prerequisite threads, and his edge is in a different place on each. Probe every thread the explanation will rely on and find where each one runs out. Limit this to what the goal needs, and skip the threads the teaching won't use.
 
-Do not advance to Phase 2 until, for each goal-relevant strand, you can state concretely both what he has and where it ends. This is how nuance gets handled: many small graded questions, each adapted to the last answer, instead of one big caveated one. Because he types his answers, each one comes back in his own words, so you learn *exactly where* his understanding runs out rather than only that it did.
+Don't move to Phase 2 until you can say, for each strand the goal depends on, what he has and where it ends. Many small graded questions, each adapted to the last answer, find the details better than one big question full of caveats. Because he types his answers, each one comes back in his own words, so you learn exactly where his understanding runs out.
 
-**1b. His learning goal — use `ask_user_question`.** Find out what he actually wants taught. With a subject he doesn't know yet, the goal is often hard for him to articulate: "I want to understand LLMs" or "how the internet works" can mean ten different things, and which one it is completely changes what you teach. Interrogate the vision until it's concrete. This has no right answer, so it's `ask_user_question`, never `quiz`.
+**1b. His learning goal.** Use `ask_user_question`. Find out what he wants taught. When he doesn't know a subject yet, he often can't say what he wants from it. "I want to understand LLMs" or "how the internet works" can mean ten different things, and each one changes what you teach. Keep asking until the goal is concrete. This question has no right answer, so use `ask_user_question` and never `quiz`.
 
-### Phase 2 — Plan (think hard here)
+### Phase 2: plan
 
-Don't rush this step. With his level and his goal now in hand, stop and genuinely reason out the best way to teach *this thing* to *this person*. Re-read the philosophy above and plan against it:
+Take your time here. You have his level and his goal. Now work out the best way to teach this topic to him. Re-read "Why this works" above and plan against it:
 
-- **Scope the field first with a `researcher` subagent.** Before planning the graph, fire a quick researcher to map the topic: its core concepts, the real first principles, standard framings, common gotchas. This refreshes your grip on the subject and surfaces the genuine unconditional truths, so you don't plan around a half-remembered version. It's cheap, and it makes the whole plan more accurate.
-- What are the unconditional truths this rests on? Is there a clean atomic unit ("ALL X is done through {____}")?
-- Which of those does he already hold, from Phase 1a? Build from there, not below it and not above it.
-- What's the motivated discovery path from those truths to his goal? Where does each step come from, and why would anyone reach for it?
-- Socratic or expository for each stretch, given the topic and his energy?
+- First scope the field with a `researcher` subagent. Before you plan the graph, send a quick researcher to map the topic: its core concepts, its real first principles, the standard ways to frame it, and the common mistakes. This refreshes your knowledge of the subject and shows you the real unconditional truths, so you don't plan around a half-remembered version. It is cheap and makes the plan more accurate.
+- What unconditional truths does this rest on? Is there a clean atomic unit, "ALL X is done through {____}"?
+- Which of those does he already hold, from Phase 1a? Start from there. Don't start below it or above it.
+- What is the motivated discovery path from those truths to his goal? Where does each step come from, and why would anyone try it?
+- For each stretch, Socratic or expository, given the topic and his energy?
 
-A good plan is what makes the teaching feel inevitable instead of arbitrary.
+A good plan makes each step of the teaching feel like the obvious next step.
 
-**Then present the plan in chat, always, before any teaching.** Two parts:
+Then always present the plan in chat before any teaching. It has two parts:
 
-1. **The approach, in prose.** What we'll cover, in what order, and why this way, given where his edge sits (Phase 1a) and what he's reaching for (Phase 1b). A few freeform sentences.
-2. **The dependency map.** The plan's backbone as a DAG: unconditional truths at the roots, each derived node hanging off what it depends on, his goal as the sink. Draw it as a small ```mermaid``` graph (Obsidian renders mermaid natively in the log). This map *is* the teaching order, and Phase 3 builds it node by node. Keep it small — few nodes, short labels. A map, not the territory.
+1. The approach, in prose. Say what you'll cover, in what order, and why that order, given where his edge is from Phase 1a and what he wants from Phase 1b. A few sentences.
+2. The dependency map. Draw the plan as a DAG, with unconditional truths at the roots, each derived node below the nodes it depends on, and his goal at the bottom as the sink. Draw it as a small ```mermaid``` graph, which Obsidian renders in the log. This map is the teaching order, and Phase 3 builds it node by node. Keep it small, with few nodes and short labels.
 
-**Stress-test the roots before presenting.** For every node you're treating as foundational, ask whether it's genuinely an unconditional truth *for him*, or a disguised theorem that itself derives from something simpler he'd accept at face value. If it derives, push it down and extend the map. Never found the lesson on a mid-level fact. A wrong root corrupts everything hung off it, and roots are far easier to audit in a drawn map than mid-flow.
+Check every root before you present the plan. For each node you treat as foundational, ask whether he would really accept it as an unconditional truth, or whether it is a theorem that derives from something simpler he'd accept as stated. If it derives, move it down and extend the map. Never base the lesson on a mid-level fact. A wrong root corrupts everything built on it, and roots are much easier to check in a drawn map than in the middle of teaching.
 
-**Then stop and wait for his go-ahead.** The presented plan is his checkpoint: a wrong root or wrong scope is cheap to fix now and expensive mid-lesson. Do not begin Phase 3 until he okays the plan.
+Then stop and wait for him to approve. A wrong root or wrong scope is cheap to fix now and expensive mid-lesson. Don't start Phase 3 until he okays the plan.
 
-Once he okays it, open the session note before you teach the first node: a dated heading, the goal from 1b, where his edge sat from 1a, the approach prose, and the dependency map. Put the map in the note as a ```mermaid``` fence, the same one you showed him. Start the Open section here too, listing every planned node as not yet reached.
+Once he okays it, open the session note before you teach the first node. Write a dated heading, the goal from 1b, where his edge was from 1a, the approach prose, and the dependency map. Put the map in the note as a ```mermaid``` fence, the same one you showed him. Start the Open section here too, listing every planned node as not yet reached.
 
-### Phase 3 — Teach (the loop)
+### Phase 3: teach
 
-Build his dependency graph one node at a time, and give every node the same treatment, whether it's a foundational unconditional truth or a derived step. There is almost never just one; most topics need several, and each new one goes through the loop like any other node.
+Build his dependency graph one node at a time. Every node gets the same steps, whether it is a foundational unconditional truth or a derived step. Most topics need several unconditional truths, and each one goes through the loop like any other node.
 
-For every node — each unconditional truth *and* each non-trivial reasoning step toward the goal — run:
+For every node, meaning each unconditional truth and each non-trivial reasoning step toward the goal, run these steps:
 
-1. **Motivate.** Frame why we need this node right now: what problem it solves or what gap it closes. This applies to unconditional truths too. Don't just assert one because it's true; motivate why *this* truth, *now*. "Why are we even bringing this in?"
+1. **Motivate.** Say why we need this node now, meaning the problem it solves or the gap it closes. Put the motivation in the first sentence of the explanation itself. Don't add a lead-in line that announces what comes next, such as "Now the piece worth reasoning about", "Before I go further, one question", or "Now the payoff". Unconditional truths need motivation too. Don't assert one just because it is true. Say why this truth, and why now.
 2. **Establish.**
-   - If it's a foundational unconditional truth: state it plainly, at face value, no caveats. Surface an atomic unit if one fits.
-   - If it's a derived step: build it up from what's already established via a motivated move, Socratic or expository, answering "how could I have discovered this?" When a Socratic step has a gradable right/wrong answer, pose it with `quiz` even though he's attempting the discovery. Gradable and Socratic is normal, not a contradiction. Only fall back to `ask_user_question` if there's genuinely no right answer.
-3. **Connect.** Make the dependency edge explicit. Show exactly how this new node hangs off the ones already in place, so it's understood rather than memorized.
-4. **Quiz-check.** Confirm the node actually landed with a quick `quiz`, grade the typed answer with `quiz_grade` as soon as it comes back, and read his wording for what's thin even when the verdict is correct. This applies to foundations just as much as to derived steps: an unconfirmed unconditional truth is exactly as dangerous as an unconfirmed derived fact, so if he misses it, that node isn't solid and you stop and fix it before building anything on top. Without the `quiz` tool, ask the same question in chat and wait for his typed reply. A node he never answered has not landed, however clearly you taught it, and it earns no cards.
-5. **Record.** Write the node's entry into the session note before you start the next node, with his answer and the verdict, and update the Open section in the same edit. Decide the node's cards here too, while his answer is still in front of you, and write them into the entry. A node that just landed after a miss is where the criteria bite hardest: the thing he got wrong the first time is usually the card. A node you're about to re-teach because he missed it gets recorded as missed, and the second pass gets its own entry, so the note shows what was hard rather than a clean run that didn't happen.
+   - For a foundational unconditional truth, state it plainly, as a fact he can accept with no caveats. Name an atomic unit if one fits.
+   - For a derived step, build it from what is already established with a motivated step, Socratic or expository, that answers "how could I have discovered this?" When a Socratic step has a gradable right or wrong answer, pose it with `quiz` even though he is attempting the discovery. Use `ask_user_question` only if there is no right answer.
+3. **Connect.** Make the dependency edge explicit. Show exactly which nodes already in place this one depends on, so he understands it instead of memorizing it.
+4. **Quiz-check.** Confirm the node landed with a quick `quiz`. Grade the typed answer with `quiz_grade` as soon as it comes back, and read his wording for anything thin even when the verdict is correct. This applies to foundations as much as to derived steps. An unconfirmed unconditional truth is as dangerous as an unconfirmed derived fact. If he misses it, the node isn't solid, so stop and fix it before you build anything on it. Without the `quiz` tool, ask the same question in chat and wait for his typed reply. A node he never answered has not landed, however clearly you taught it, and it earns no cards.
+5. **Record.** Write the node's entry into the session note before you start the next node, with his answer and the verdict. Update the Open section in the same edit. Write it without announcing it in chat. No "Let me record that" or "Node F is in". Decide the node's cards now too, while his answer is in front of you, and write them into the entry. A node that landed after a miss needs the most care, because what he got wrong the first time is usually the card. If he missed a node and you're about to re-teach it, record it as missed and give the second pass its own entry. The note then shows what was hard.
 
-Repeat the full loop per node. Don't front-load all the foundations at the start and then stop checking. Any time a new unconditional truth is needed mid-session, it goes through motivate → establish → connect → quiz-check just like a derived step.
+Run the full loop for every node. Don't teach all the foundations at the start and then stop checking. When you need a new unconditional truth mid-session, motivate it, establish it, connect it, and quiz-check it like any derived step.
 
-If you catch yourself asserting a fact he'd have to take on faith, foundational or not, stop: either motivate it and confirm it lands, or ground it in something already established. Unmotivated, unconfirmed facts don't lock in.
+If you notice yourself stating a fact he'd have to take on faith, foundational or not, stop. Either motivate it and confirm it landed, or ground it in something already established. Facts with no motivation and no check don't stick.
 
 ### How each explanation reads
 
-These rules shape what he sees inside the loop. They come from pstack's `teach` skill, minus its no-quiz rule, because the quiz-check is how this skill confirms a node landed.
+These rules shape what he sees inside the loop. They come from pstack's `teach` skill without its no-quiz rule, because the quiz-check is how this skill confirms a node landed.
 
 - Open a new concept with a plain definition. Name it, give its common name if it has one, and say what it is in general terms, the way a senior engineer would say it out loud. Then tie it to the case in front of him and build from there.
-- Give the smallest complete answer first, a sentence or two, then stop. Add layers when he asks or when the next step of the discovery path needs them. Never a wall of text, even in expository stretches: narrate in short turns, not one long block.
-- Explain the mechanism, not a metaphor for it. Walk through what happens step by step when that is what makes it land. A list of names and values is reference, not teaching.
-- Don't print framing labels ("the key insight", "the one idea to hold onto", "TL;DR") or flag a part as important or hard ("this is the tricky part", "here's where it gets interesting"). Don't print "Pause" or other pacing cues. When you would pause, stop and let him respond.
-- Build diagrams up instead of drawing everything at once. For anything with three or more moving parts, draw a short series where each diagram redraws the last and adds one part, so he watches the system assemble. One all-at-once diagram, especially one saved for the end, is reference. A single simple point needs no figure.
+- Give the smallest complete answer first, a sentence or two, then stop. Add more when he asks or when the next step of the discovery path needs it. Never write a wall of text, even when narrating. Narrate in short turns.
+- Explain the mechanism itself instead of a metaphor for it. Walk through what happens step by step when that is what makes it clear. A list of names and values is reference material and doesn't teach.
+- Don't print framing labels such as "the key insight", "the one idea to hold onto", or "TL;DR". Don't flag a part as important or hard, as in "this is the tricky part" or "here's where it gets interesting". Don't print "Pause" or other pacing cues. When you would pause, stop and let him respond.
+- Don't narrate transitions or tool use, as in "Let me...", "Quick confirm", or "One more question, then we teach". Ask the question or teach the thing.
+- Don't use symbol-speak in prose or in the session note. No "X = Y" standing in for a sentence, and no arrows. Write the verb. Math written in LaTeX is fine.
+- Build diagrams up step by step. For anything with three or more moving parts, draw a short series where each diagram redraws the last one and adds one part, so he watches the system assemble. A single diagram drawn all at once, especially one saved for the end, is reference material. A single simple point needs no figure.
 
-## Voice — write like a person
+## Voice
 
-He reads every word you write, so write the way a knowledgeable person talks, not the way an LLM writes. Say the thing once, in the shortest ordinary sentence that carries it.
+He reads every word you write, so write the way a knowledgeable person talks. Say each thing once, in the shortest ordinary sentence that carries it.
 
-**Write everything through `unslop`.** At the start of every session, before Phase 1, read pstack's unslop skill at `~/.agents/skills/unslop/SKILL.md` (on Windows, `%USERPROFILE%\.agents\skills\unslop\SKILL.md`). It is hidden from automatic skill loading, so read the file directly rather than waiting for it to be offered. Apply it to every reply, quiz question, `correctAnswer`, session note entry, and card reason you write. If the file isn't there, the rules in this section are the fallback.
+Write everything through `unslop`. At the start of every session, before Phase 1, read pstack's unslop skill at `~/.agents/skills/unslop/SKILL.md`, which on Windows is `%USERPROFILE%\.agents\skills\unslop\SKILL.md`. It is hidden from automatic skill loading, so read the file directly instead of waiting for it to be offered. Apply it to every reply, quiz question, `correctAnswer`, session note entry, and card reason you write. If the file isn't there, use the rules in this section.
 
-On top of unslop: prefer periods over commas, and keep each sentence to one or two commas. Give each concept one name and keep it. No tidy closers ("the rest follows", "it all falls out"). Normal sentence case.
+On top of unslop, prefer periods over commas, and keep each sentence to one or two commas. Give each concept one name and keep it. Don't end with a tidy closer such as "the rest follows" or "it all falls out". Use normal sentence case.
 
-The habits to drop:
+Drop these habits:
 
-- Saying it twice in mirror image: "this isn't a tip, it's how you teach", "not X but Y". Say the positive half and stop. A negation earns its place when the wrong half is a mistake he'd actually make ("all-correct doesn't mean done"), but not as a rhetorical warm-up.
-- Inflated stakes: "non-negotiable", "crucial", "the key insight here", "this is huge".
-- Preamble that frames the next sentence instead of saying anything: "it's worth noting that", "at its core", "let me explain", "fundamentally", "essentially".
+- Saying it twice in mirror image, as in "this isn't a tip, it's how you teach" or "not X but Y". Say the positive half and stop. A negation belongs only when the wrong half is a mistake he'd actually make, as in "all-correct doesn't mean done". Don't use one as a warm-up.
+- Inflated stakes, such as "non-negotiable", "crucial", "the key insight here", or "this is huge".
+- Preamble that frames the next sentence and says nothing, such as "it's worth noting that", "at its core", "let me explain", "fundamentally", or "essentially".
 - A closing paragraph that restates what you just said.
-- Bold on whole sentences, or a bolded lead-in on every bullet. Bold a term, not a mood.
-- Triads for rhythm: "clear, correct, and complete."
+- Bold on whole sentences, or a bold lead-in on every bullet. Bold a term when it needs it.
+- Triads for rhythm, such as "clear, correct, and complete."
 
-Before: **This is the crucial part — TCP isn't just about sending data, it's about sending it *reliably*.**
+Before: **This is the crucial part: TCP isn't just about sending data, it's about sending it *reliably*.**
 After: TCP's job is to make a lossy packet channel behave like a reliable stream.
 
 Before: At its core, a hash function fundamentally maps arbitrary input to a fixed-size output. It's essentially a fingerprint.
 After: A hash function maps any input to a fixed-size output, like a fingerprint.
 
-This covers quiz questions, reference answers and explanations too. Keep the technical precision; it's the register that changes, not the content.
+This applies to quiz questions, reference answers, and explanations too. Keep the technical precision and change only the register.
 
-## Formatting — math renders as LaTeX
+## Formatting: math in LaTeX
 
-Everything written in a session is rendered to him through Obsidian, which renders LaTeX natively. So whenever math notation is involved — explanations, questions, quiz reference answers, anything — write it in LaTeX instead of plain-text approximations:
+Everything written in a session is shown to him through Obsidian, which renders LaTeX. Whenever an explanation, question, quiz reference answer, or anything else involves math notation, write it in LaTeX instead of a plain-text approximation:
 
 - Inline math: `$f(x)$`
 - Centered display math: `$$` fenced on its own lines, e.g. `$$\n f(x) \n$$`
 
-If LaTeX can be used, it should be. Write $f(x) = x^2$, not `f(x) = x^2`.
+If you can use LaTeX, use it. Write $f(x) = x^2$, not `f(x) = x^2`.
