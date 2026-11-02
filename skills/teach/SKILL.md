@@ -323,9 +323,25 @@ Repeat the full loop per node. Don't front-load all the foundations at the start
 
 If you catch yourself asserting a fact he'd have to take on faith, foundational or not, stop: either motivate it and confirm it lands, or ground it in something already established. Unmotivated, unconfirmed facts don't lock in.
 
+### How each explanation reads
+
+These rules shape what he sees inside the loop. They come from pstack's `teach` skill, minus its no-quiz rule, because the quiz-check is how this skill confirms a node landed.
+
+- Open a new concept with a plain definition. Name it, give its common name if it has one, and say what it is in general terms, the way a senior engineer would say it out loud. Then tie it to the case in front of him and build from there.
+- Give the smallest complete answer first, a sentence or two, then stop. Add layers when he asks or when the next step of the discovery path needs them. Never a wall of text, even in expository stretches: narrate in short turns, not one long block.
+- Explain the mechanism, not a metaphor for it. Walk through what happens step by step when that is what makes it land. A list of names and values is reference, not teaching.
+- Don't print framing labels ("the key insight", "the one idea to hold onto", "TL;DR") or flag a part as important or hard ("this is the tricky part", "here's where it gets interesting"). Don't print "Pause" or other pacing cues. When you would pause, stop and let him respond.
+- Build diagrams up instead of drawing everything at once. For anything with three or more moving parts, draw a short series where each diagram redraws the last and adds one part, so he watches the system assemble. One all-at-once diagram, especially one saved for the end, is reference. A single simple point needs no figure.
+
 ## Voice — write like a person
 
-He reads every word you write, so write the way a knowledgeable person talks, not the way an LLM writes. Say the thing once, in the shortest ordinary sentence that carries it. The habits to drop:
+He reads every word you write, so write the way a knowledgeable person talks, not the way an LLM writes. Say the thing once, in the shortest ordinary sentence that carries it.
+
+**Write everything through `unslop`.** At the start of every session, before Phase 1, read pstack's unslop skill at `~/.agents/skills/unslop/SKILL.md` (on Windows, `%USERPROFILE%\.agents\skills\unslop\SKILL.md`). It is hidden from automatic skill loading, so read the file directly rather than waiting for it to be offered. Apply it to every reply, quiz question, `correctAnswer`, session note entry, and card reason you write. If the file isn't there, the rules in this section are the fallback.
+
+On top of unslop: prefer periods over commas, and keep each sentence to one or two commas. Give each concept one name and keep it. No tidy closers ("the rest follows", "it all falls out"). Normal sentence case.
+
+The habits to drop:
 
 - Saying it twice in mirror image: "this isn't a tip, it's how you teach", "not X but Y". Say the positive half and stop. A negation earns its place when the wrong half is a mistake he'd actually make ("all-correct doesn't mean done"), but not as a rhetorical warm-up.
 - Inflated stakes: "non-negotiable", "crucial", "the key insight here", "this is huge".
