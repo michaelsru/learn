@@ -873,6 +873,22 @@ function withUILock<T>(fn: () => Promise<T>): Promise<T> {
 	return sharedUiLock.withLock(fn);
 }
 
+// The agent counts as busy while this tool waits for the user, so pi's working
+// spinner keeps animating and redraws the screen ~12 times a second. Windows
+// Terminal 1.24 leaks ~120 KB per repaint of the visible tab, which took it to
+// several GB during long quiz pauses. An empty frame list starts no animation
+// timer, so nothing is written to the terminal until the user answers.
+async function withSpinnerPaused<T>(ctx: any, fn: () => Promise<T>): Promise<T> {
+	const canSet = typeof ctx.ui?.setWorkingIndicator === "function";
+	if (canSet) ctx.ui.setWorkingIndicator({ frames: [] });
+	try {
+		return await fn();
+	} finally {
+		// No other extension sets a custom indicator, so restoring means the default.
+		if (canSet) ctx.ui.setWorkingIndicator();
+	}
+}
+
 export default function quiz(pi: ExtensionAPI) {
 	pi.registerTool({
 		name: "quiz",
@@ -957,10 +973,11 @@ export default function quiz(pi: ExtensionAPI) {
 			}
 
 			return withUILock(async () => {
-				const response =
+				const response = await withSpinnerPaused(ctx, () =>
 					mode === "single-select"
-						? await askSingleChoice(ctx, params.question, context, options, correctIndices, explanation)
-						: await askMultiChoice(ctx, params.question, context, options, correctIndices, explanation);
+						? askSingleChoice(ctx, params.question, context, options, correctIndices, explanation)
+						: askMultiChoice(ctx, params.question, context, options, correctIndices, explanation),
+				);
 				if (!response) {
 					return cancelledResult(params.question, mode, correctIndices, context);
 				}
