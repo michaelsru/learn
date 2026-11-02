@@ -565,6 +565,18 @@ function withUILock<T>(fn: () => Promise<T>): Promise<T> {
 	return sharedUiLock.withLock(fn);
 }
 
+// Same fix as in quiz.ts: stop the working spinner while waiting on the user,
+// so an idle prompt sends no redraws (Windows Terminal leaks memory on each one).
+async function withSpinnerPaused<T>(ctx: any, fn: () => Promise<T>): Promise<T> {
+	const canSet = typeof ctx.ui?.setWorkingIndicator === "function";
+	if (canSet) ctx.ui.setWorkingIndicator({ frames: [] });
+	try {
+		return await fn();
+	} finally {
+		if (canSet) ctx.ui.setWorkingIndicator();
+	}
+}
+
 export default function askUserQuestion(pi: ExtensionAPI) {
 	pi.registerTool({
 		name: "ask_user_question",
@@ -597,7 +609,7 @@ export default function askUserQuestion(pi: ExtensionAPI) {
 				return unavailableResult(params.question, mode, "ask_user_question requires interactive mode UI", context);
 			}
 
-			return withUILock(async () => {
+			return withUILock(() => withSpinnerPaused(ctx, async () => {
 				if (mode === "text") {
 					const editorTitle = context ? `${params.question}\n\n${context}` : params.question;
 					const answer = await ctx.ui.editor(editorTitle);
@@ -622,7 +634,7 @@ export default function askUserQuestion(pi: ExtensionAPI) {
 					return cancelledResult(params.question, mode, context);
 				}
 				return buildResult(params.question, context, mode, answers);
-			});
+			}));
 		},
 
 		renderCall(args, theme) {
