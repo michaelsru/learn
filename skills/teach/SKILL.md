@@ -70,7 +70,7 @@ Verify facts instead of relying on memory. He has to be able to trust the teache
 
 ### The session note
 
-Every session leaves a markdown file he can re-read later. Use one file per topic, `sessions/<topic-slug>.md`, relative to the project root. Create the folder if it doesn't exist. Each session on that topic appends to the same file under its own `## <YYYY-MM-DD>` heading. That keeps the whole history of a topic in one place, and you can read the last session before you plan the next one.
+Every session leaves a markdown file he can re-read later. Use one file per topic, `~/develop/anki_processing/sessions/<topic-slug>.md`, whatever directory the session runs from. Never create a `sessions/` folder anywhere else. In this skill, `sessions/` means that folder. Each session on that topic appends to the same file under its own `## <YYYY-MM-DD>` heading. That keeps the whole history of a topic in one place, and you can read the last session before you plan the next one.
 
 The note is re-read at the start of every later session, and its wording gets copied into what you say. So write it through unslop like any reply, including the node headings and the mermaid labels. Keep his quiz answers verbatim.
 
